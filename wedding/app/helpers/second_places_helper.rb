@@ -1,0 +1,2 @@
+module SecondPlacesHelper
+end

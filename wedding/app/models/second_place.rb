@@ -1,0 +1,2 @@
+class SecondPlace < ApplicationRecord
+end
