@@ -1,1 +1,17 @@
-user/show
+<div class="container">
+  <div　class="row">
+    <div class="">
+      <h1>
+        
+      </h1>
+    </div>
+    <div class="row">
+      
+    </div>
+  </div>
+</div>
+<p><%= @user.name %></p>
+<p><%= @user.introduction %></p>
+<p><%= attachment_image_tag @user, :image_id_change, size: "100x100", fallback: "noimage.png" %></p>
+
+<%= link_to '編集する', edit_user_path(@user), "data-turbolinks": false %>

@@ -1,1 +1,20 @@
-user/edit
+<div class="container">
+  <div　class="row">
+    <div class="">
+      <h1>
+      　プロフィール編集
+      </h1>
+    </div>
+    <div class="row">
+      <%= form_with model: @user, local:true do |f| %>
+        <%= f.attachment_field :image %>
+        <%= attachment_image_tag @item, :image, :size => '350x300', id: "file-preview" %>
+        <%= f.text_field :name %>
+        <%= f.text_area :introduction%>
+        
+
+      <% end %>
+    </div>
+  </div>
+</div>
+

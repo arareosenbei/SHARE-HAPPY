@@ -1,0 +1,22 @@
+<div class="container">
+  <div　class="row">
+    <div class="">
+      <h1>
+        結婚式を記録する
+      </h1>
+    </div>
+    <div class="row">
+      <div class="">
+        <%= form_with model:@post, local:true do |f| %>
+          <%= f.attachment_field :image %>
+          <%= f.text_field :title %>
+          <%= f.text_area :body %>
+        <% end %>
+      </div>
+      
+    </div>
+    <div class="row">
+      
+    </div>
+  </div>
+</div>
