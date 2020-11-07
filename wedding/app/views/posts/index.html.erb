@@ -6,7 +6,12 @@
       </h1>
     </div>
     <div class="row">
-      
+      <% @posts.each do |post| %>
+        <%= link_to post_path(post) do %>
+          <p><%= attachment_image_tag post, :image, size: "200x200", fallback: "noimage.png", "data-turbolinks": false %></p>
+        <% end %>
+        <p><%= post.title %></p>
+        <% end %>
     </div>
   </div>
 </div>

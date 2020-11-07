@@ -1,19 +1,49 @@
 class PlacesController < ApplicationController
+  before_action :find, only: [:show, :edit, :update, :destroy]
+  
   def index 
+    @place = Place.all
   end
   
   def show
   end
   
-  def create
+  def new
+    @place = Place.new
   end
+  
+  def create 
+    @place = Place.new(place_params)
+    if @place.save
+      redirect_to place_path(@place)
+    else
+      redirect_back(fallback_location: root_path)
+    end 
+  end 
   
   def edit
   end
   
-  def update 
+  def update
+    @place.update(place_params)
+    redirect_to place_path(@place)
   end
   
   def destroy
+    @place.destroy
+    redirect_to place_path(@place)
   end
+  
+  private
+  # before_actionで設定
+  def find
+    @place = Place.find(params[:id])
+  end
+  
+  # ストロングパラメーター
+  def  place_params
+  	params.require(:place).permit(:name, :postal_code, :address, :introduction, :image)
+  end
+
+  
 end

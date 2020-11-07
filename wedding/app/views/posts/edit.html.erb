@@ -6,7 +6,20 @@
       </h1>
     </div>
     <div class="row">
-      
+      <div>
+        <%= form_with model: @post, local:true do |f| %>
+        <p>
+          <%= f.file_field :image, class: 'img_field', style: 'display:none;'%>
+          <%= attachment_image_tag @post, :image, fallback: 'noimage.png', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev'  %>
+        </p>
+        <p><%= f.text_field :name %></p>
+        <p><%= f.text_area :postal_code %></p>
+        <p><%= f.text_area :address %></p>
+        <p><%= f.text_area :introduction %></p>
+        <p><%= f.submit '更新する', class: "btn btn-primary" %></p>
+        <% end %>
+        <%= link_to '削除する', place_path(@post), method: :delete, class: "btn btn-primary", "data-turbolinks": false %>
+      </div>
     </div>
   </div>
-</div>post/edit
+</div>

@@ -2,11 +2,31 @@
   <div　class="row">
     <div class="">
       <h1>
-        
+        <!--自分の結婚式ならあなたの結婚式、違う場合は(名前)さんの結婚式-->
+        <%= %>の結婚式
       </h1>
     </div>
     <div class="row">
-      
+      <div class="">
+        <p><%= attachment_image_tag @post, :image, size: "200x200", fallback: "noimage.png" %></p>
+        <p><%= @post.title %></p>
+        <p><%= @post.body %></p>
+        <p><%= link_to '一覧に戻る', posts_path, "data-turbolinks": false, class: "btn btn-primary" %></p>
+        <p>
+          <% if %>
+            <%= link_to '編集', edit_post_path(@post), class: "btn btn-primary", "data-turbolinks": false %>
+          <% end %>
+        </p>
+        
+      </div>
+       
     </div>
   </div>
-</div>post/show
+</div>
+
+
+<!--自分の結婚式なら削除リンク-->
+<%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-primary", "data-turbolinks": false %>
+
+
+

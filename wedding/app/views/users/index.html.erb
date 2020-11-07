@@ -1,1 +1,22 @@
-user/index
+<div class="container">
+  <div　class="row">
+    <div class="">
+      <h1>
+        ユーザー一覧
+      </h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <% @users.each do |user| %>
+        <%= link_to user_path(user) do %>
+        <p><%= attachment_image_tag user, :image, size: "200x200", fallback: "noimage.png", "data-turbolinks": false %></p>
+        <% end %>
+        <p><%= user.name %></p>
+
+        <% end %>
+      </div>
+      
+      
+    </div>
+  </div>
+</div>

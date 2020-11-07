@@ -1,1 +1,29 @@
-place/show
+ 
+<div class="container">
+  <div　class="row">
+    <div class="">
+      <h1><%= @place.name %></h1>
+    </div>
+    <!--ユーザー情報-->
+    <div class="row">
+      <div class="">
+      　<!--imageが表示されない-->
+      　
+      　<!--% place.image.each do |image|%>-->
+            
+          <!--% end %>-->
+      　
+        <p><%= attachment_image_tag @place, :image, size: "100x100", fallback: "noimage.png" %></p>
+        <p><%= @place.name %></p>
+        <p><%= @place.postal_code %></p>
+        <p><%= @place.address %></p>
+        <p><%= @place.introduction %></p>
+        <span><%= link_to '一覧に戻る', places_path, "data-turbolinks": false, class: "btn btn-primary" %></span>
+        <span><%= link_to '編集する', edit_place_path(@place), "data-turbolinks": false, class: "btn btn-primary" %></span>
+      
+      </iv>
+      
+
+    </div>
+  </div>
+</div>

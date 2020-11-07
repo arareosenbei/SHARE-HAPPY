@@ -1,0 +1,20 @@
+<div class="container">
+  <div　class="row">
+    <div class="">
+      <h1>結婚式場一覧</h1>
+    </div>
+    <div class="row">
+      <div class="">
+        <%= link_to '式場を登録', new_place_path, class: "btn btn-primary", "data-turbolinks": false %>
+        <% @place.each do |place| %>
+          <%= link_to place_path(place) do %>
+        <p><%= attachment_image_tag place, :image, size: "100x100", fallback: "noimage.png", "data-turbolinks": false %></p>
+          <% end %>
+        <p><%= place.name %></p>
+        <% end %>
+      </div>
+      
+      
+    </div>
+  </div>
+</div>

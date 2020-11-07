@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     resources :comments, only:[:create, :destroy]
     resource :faborites, only:[:create, :destroy]
   end
-  resources :posts, only:[:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :places, only:[:index, :show, :create, :edit, :update, :destroy]
+  resources :posts
+  resources :places
   resources :second_places,only:[:index, :show, :create, :edit, :update, :destroy]
   resources :reviews, only:[:index, :create, :edit, :update, :destroy]
 

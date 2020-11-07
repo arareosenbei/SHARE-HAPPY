@@ -7,13 +7,13 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	        	<% if signed_in? %>
-	          <li class="nav-item"><%= link_to "結婚式一覧", posts_path, class: 'nav-link', "data-turbolinks": false %></li>
-	          <li class="nav-item"><%= link_to "式場一覧", places_path, class: 'nav-link', "data-turbolinks": false %></li>
+	          <li class="nav-item"><%= link_to "結婚式を見る", posts_path, class: 'nav-link', "data-turbolinks": false %></li>
+	          <li class="nav-item"><%= link_to "式場を見る", places_path, class: 'nav-link', "data-turbolinks": false %></li>
 	          <li class="nav-item"><%= link_to "マイページ", user_path(current_user), class: 'nav-link', "data-turbolinks": false %></li>
 	          <li class="nav-item"><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: 'nav-link', "data-turbolinks": false %></li>
 				<% else %>
-				<li class="nav-item"><%= link_to "結婚式一覧", posts_path, class: 'nav-link', "data-turbolinks": false %></a></li>
-	          <li class="nav-item"><%= link_to "式場一覧", places_path, class: 'nav-link', "data-turbolinks": false %></li>
+				<li class="nav-item"><%= link_to "結婚式を見る", posts_path, class: 'nav-link', "data-turbolinks": false %></a></li>
+	          <li class="nav-item"><%= link_to "式場を見る", places_path, class: 'nav-link', "data-turbolinks": false %></li>
 	          <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: 'nav-link', "data-turbolinks": false %></li>
 	          <li class="nav-item"><%= link_to "サインイン", new_user_registration_path, class: 'nav-link', "data-turbolinks": false %></a></li>
 	          

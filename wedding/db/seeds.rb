@@ -11,7 +11,7 @@ User.create!(
    password: 'testuser',
    name: 'テストユーザー',
    introduction: 'テスト用のユーザーになります。',
-   image_id: File.open("./app/assets/images/p.1.jpg"),
+   image: File.open("./app/assets/images/p.1.jpg")
 )
 
 
