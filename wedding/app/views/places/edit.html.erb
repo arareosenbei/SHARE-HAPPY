@@ -18,8 +18,9 @@
         <p><%= f.text_area :address %></p>
         <p><%= f.text_area :introduction %></p>
         <p><%= f.submit '更新する', class: "btn btn-primary" %></p>
+        <p><%= link_to '削除する', place_path(@place), method: :delete, class: "btn btn-primary", "data-turbolinks": false %></p>
         <% end %>
-        <%= link_to '削除する', place_path(@place), method: :delete, class: "btn btn-primary", "data-turbolinks": false %>
+        
       </div>
       
       

@@ -38,7 +38,8 @@ ActiveRecord::Schema.define(version: 2020_11_04_042856) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "image_id"
+    t.integer "user_id"
+    t.string "image_id"
     t.string "title", null: false
     t.text "body", null: false
     t.datetime "created_at", null: false

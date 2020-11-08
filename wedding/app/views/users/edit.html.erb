@@ -18,6 +18,7 @@
         <p><%= f.text_field :name %></p>
         <p><%= f.text_area :introduction %></p>
         <p><%= f.submit '更新する', class: "btn btn-primary" %></p>
+        <p><%= link_to '戻る', user_path(@user), class: "btn btn-primary", "data-turbolinks": false %></p>
       <% end %>
       </div>
       
