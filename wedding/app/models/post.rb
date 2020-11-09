@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   attachment :image
 
   belongs_to :user
-  has_many :places
+  belongs_to :place
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   

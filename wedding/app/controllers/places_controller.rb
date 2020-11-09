@@ -14,8 +14,9 @@ class PlacesController < ApplicationController
   
   def create 
     @place = Place.new(place_params)
+    @place.user_id = current_user.id
     if @place.save
-      redirect_to place_path(@place)
+      redirect_to places_path
     else
       redirect_back(fallback_location: root_path)
     end 

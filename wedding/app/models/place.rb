@@ -3,7 +3,7 @@ class Place < ApplicationRecord
   attachment :image
   
   belongs_to :user
-  belongs_to :post
+  has_many :posts
   has_many :reviews, dependent: :destroy
   
   validates :name, presence: true

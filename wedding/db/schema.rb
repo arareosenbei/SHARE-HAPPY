@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_11_04_042856) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "body", null: false
+    t.integer "user_id"
+    t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,10 +38,9 @@ ActiveRecord::Schema.define(version: 2020_11_04_042856) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
     t.string "image_id"
-    t.string "title", null: false
-    t.text "body", null: false
+    t.string "title"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,8 +49,8 @@ ActiveRecord::Schema.define(version: 2020_11_04_042856) do
     t.integer "user_id"
     t.integer "place_id"
     t.integer "second_place_id"
-    t.string "title", null: false
-    t.text "body", null: false
+    t.string "title"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,8 +73,8 @@ ActiveRecord::Schema.define(version: 2020_11_04_042856) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "image_id"
-    t.string "name", null: false
-    t.text "introduction", null: false
+    t.string "name"
+    t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

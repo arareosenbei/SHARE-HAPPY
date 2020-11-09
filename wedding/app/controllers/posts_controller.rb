@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create 
     @post = Post.new(post_params)
     if @post.save
-      redirect_to post_path(params[:id])
+      redirect_to posts_path
     else
       redirect_back(fallback_location: root_path)
     end

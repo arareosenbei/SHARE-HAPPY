@@ -10,7 +10,7 @@
         <%= form_with model: @user, local:true do |f| %>
         <p>
           <!--画像プレビュー実装-->
-          <!--file_fieldをdisplay:noneの非表示にし、クラスを付与する。-->
+          <!--file_fieldをdisplay:none非表示にし、クラスを付与する。-->
           <%= f.file_field :image, class: 'img_field', style: 'display:none;'%>
           <!--上で付与したクラスのHTML(file_field)がクリックされたらJavaScriptの処理を実行する。-->
           <%= attachment_image_tag @user, :image, size: '200x200', fallback: 'noimage.png', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev'  %>
