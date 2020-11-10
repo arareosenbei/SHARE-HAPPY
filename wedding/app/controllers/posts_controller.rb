@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   end
   
   def show
+    @comment = Comment.new
+    @user = @post.user
   end
   
   def new
@@ -20,7 +22,6 @@ class PostsController < ApplicationController
       redirect_to posts_path
     else
       redirect_back(fallback_location: root_path)
-      logger.debug @post.errors.inspect 
     end
   end 
   

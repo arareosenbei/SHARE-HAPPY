@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_042856) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "post_id"
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,7 +29,6 @@ ActiveRecord::Schema.define(version: 2020_11_04_042856) do
 
   create_table "places", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "post_id"
     t.string "image_id"
     t.string "name"
     t.text "introduction"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_042856) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "place_id"
     t.string "image_id"
     t.string "title"
     t.text "body"
