@@ -12,6 +12,8 @@
         <p><%= @post.title %></p>
         <p><%= @post.body %></p>
         
+        
+        
         <!--いいね-->
         <% if @post.favorited_by?(current_user) %>
 <li>
@@ -28,6 +30,8 @@
   <% end %>
 </li>
 <% end %>
+
+
         
         <p><%= link_to '一覧に戻る', posts_path, "data-turbolinks": false, class: "btn btn-primary" %></p>
         <p>

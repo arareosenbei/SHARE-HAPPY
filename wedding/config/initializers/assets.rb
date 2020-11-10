@@ -5,9 +5,9 @@ Rails.application.config.assets.version = '1.0'
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
-Rails.application.config.assets.precompile += %w( bootstrap-datepicker.css )
-Rails.application.config.assets.precompile += %w( style.css )
-Rails.application.config.assets.precompile += %w( animate.css )
+Rails.application.config.assets.precompile += %w( bootstrap-datepicker.scss )
+Rails.application.config.assets.precompile += %w( style.scss )
+Rails.application.config.assets.precompile += %w( animate.scss )
 Rails.application.config.assets.precompile += %w( jquery-migrate-3.0.1.min.js )
 Rails.application.config.assets.precompile += %w( jquery.waypoints.min.js )
 Rails.application.config.assets.precompile += %w( jquery.stellar.min.js )

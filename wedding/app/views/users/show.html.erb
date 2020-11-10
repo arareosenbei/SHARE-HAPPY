@@ -3,9 +3,9 @@
     <div class="">
     　<!--タイトル　自分のページ：マイページ、他社のページ：別表記-->
       <% if @user == current_user %>
-      <h1>マイページ</h1>
+        <h1>マイページ</h1>
       <% else %>
-      <h1><%= @user.name %>さんの会員情報</h1>
+        <h1><%= @user.name %>さんの会員情報</h1>
       <% end %>
     </div>
     <!--ユーザー情報-->
@@ -15,7 +15,7 @@
         <p><%= @user.name %></p>
         <p><%= @user.introduction %></p>
         <%= link_to '一覧に戻る', users_path, "data-turbolinks": false, class: "btn btn-primary" %>
-        <!--user：自身なら編集リンク表示-->
+        <!--current_userなら編集リンク表示-->
         <% if @user == current_user %>
           <%= link_to '編集する', edit_user_path(@user), "data-turbolinks": false, class: "btn btn-primary" %>
         <% end %>

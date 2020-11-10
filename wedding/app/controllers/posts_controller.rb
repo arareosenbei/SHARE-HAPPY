@@ -11,16 +11,17 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
-  
+  　
   def create 
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @places = Place.all
     if @post.save
       redirect_to posts_path
-    else
+    else・。、’
       redirect_back(fallback_location: root_path)
+      logger.debug @post.errors.inspect 
     end
-
   end 
   
   def edit
