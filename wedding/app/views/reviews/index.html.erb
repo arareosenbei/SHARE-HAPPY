@@ -1,1 +1,44 @@
-review/index
+<p><%= attachment_image_tag @place, :image, size: "100x100", fallback: "noimage.png" %></p>
+<p><%= @place.name %></p>
+<p><%= @place.postal_code %></p>
+<p><%= @place.address %></p>
+
+<!--レビュー作成画面へのリンク-->
+<%= link_to 'レビューを書く', new_place_review_path, class: 'btn btn-primary' %>
+
+
+<!--レビュー一覧を表示-->
+<p>
+  <% @place.reviews.each do |review| %>
+    <%= attachment_image_tag review.user, :image, size: '100x100', format: 'jpg'  %>
+    <%= review.user.name %></a>
+    <div class="col-md-6 mb-3">
+        <div class=" posts-content">
+          <p><%= simple_time(post.created_at) %></p>
+          <h4 class="mb-3">評価：<%= post.rate %>点 | <%= post.title %></h4>
+
+          <!--星評価-->
+         <div id="star-rate-<%= post.id %>"></div>
+          <script>
+          $('#star-rate-<%= post.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= post.rate %>,
+          });
+          </script>  
+        <!--/星評価-->
+    <%= review.title %>
+    <%= review.created_at.strftime('%Y/%m/%d') %>
+    <%= review.body %>
+<!--レビュー削除機能　パス設定まだ-->
+    <% if review.user == current_user %>
+        <div>
+      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-danger pull-right" %>
+        </div>
+    <% end %>
+  <% end %>
+</p>

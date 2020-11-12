@@ -1,0 +1,26 @@
+<%= form_with model: @review, url: place_reviews_path, local:true do |f| %>
+  <%= f.text_field :title, placeholder: "タイトルを入力" %>
+  
+  <!--星の機能-->
+  
+  <div class="form-group row" id="star">
+    <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :rate, id: :review_star %>
+  </div>
+
+  <!-- 評価javascript -->
+  <script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'place[rate]',
+    half: true,
+  });
+  </script>  
+  
+  <%= f.text_area :body, placeholder: "本文を入力" %>
+  <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+<% end %>
+  
