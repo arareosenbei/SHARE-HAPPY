@@ -1,16 +1,12 @@
-
-<!--コメント一覧-->
-<p>
-  <% post.comments.each do |comment| %>
+<% comments.each do |comment| %>
+  <% unless comment.id.nil? %>
     <%= attachment_image_tag comment.user, :image, size: '100x100', format: 'jpg'  %>
-    <%= comment.user.name %></a>
-    <%= comment.created_at.strftime('%Y/%m/%d') %>
+    <p><%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %></p>
     <%= comment.body %>
-<!--コメント削除機能-->
+    <%= comment.created_at.strftime('%Y/%m/%d') %>
+    
     <% if comment.user == current_user %>
-        <div>
-      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-danger pull-right" %>
-        </div>
+      <p><%= link_to 'コメントを削除する', post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: 'btn btn-danger' %></p>
     <% end %>
   <% end %>
-</p>
+<% end %>

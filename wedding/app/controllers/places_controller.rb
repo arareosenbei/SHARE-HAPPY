@@ -6,10 +6,11 @@ class PlacesController < ApplicationController
   end
 
   def show
+    
   end
 
   def new
-    @place = Place.new
+    @place = Place.newp
   end
 
   def create

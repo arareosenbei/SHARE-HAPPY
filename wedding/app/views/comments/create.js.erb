@@ -1,2 +1,4 @@
-$('.comment').append("<%= comment.body %>");
-$('.js-form')[0].reset(); // 追加
+<!--$('.comment_create').append("%= comment.body %>");-->
+<!--$('.js-form')[0].reset(); // 追加-->
+$("#comment").html("<%= j(render 'commentindex', post: @post, comments: @comments ) %>");
+$("textarea").val('');

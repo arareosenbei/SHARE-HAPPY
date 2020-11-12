@@ -15,36 +15,28 @@
         <p><%= attachment_image_tag @post, :image, size: "200x200", fallback: "noimage.png" %></p>
         <p><%= @post.title %></p>
         <p><%= @post.body %></p>
-        
-        
-        
+      
         <!--いいね-->
         <div class="favorite">
           <%= render 'favorites/favorite', post: @post %>
         </div>
+
+        <!--コメントフォーム-->
+          <%= render 'comments/form', post: @post, comment: @comment %>
+        
+        <!--コメント情報呼び出し-->
+        <div class="comment">
+          <%= render 'comments/index', post: @post, comments: @comments %>
+        </div>
         
 
-<!--コメントフォーム-->
-<%= render 'comments/form', post: @post, comment: @comment %>
-
-<!--コメント情報呼び出し-->
-<%= render 'comments/index', post: @post, comment: @comment %>
-
-
-
-
-
-
-        
-        <p><%= link_to '一覧に戻る', posts_path, "data-turbolinks": false, class: "btn btn-primary" %></p>
+        <p><%= link_to '一覧に戻る', posts_path, class: "btn btn-primary" %></p>
         <p>
           <% if %>
             <%= link_to '編集', edit_post_path(@post), class: "btn btn-primary", "data-turbolinks": false %>
           <% end %>
         </p>
-        
       </div>
-       
     </div>
   </div>
 </div>
