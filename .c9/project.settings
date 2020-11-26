@@ -1,4 +1,19 @@
 {
+    "ace": {
+        "@tabSize": 2
+    },
+    "format": {
+        "jsbeautify": {
+            "@formatOnSave": true
+        }
+    },
+    "instance": {
+        "@automaticShutdown": "30"
+    },
+    "javascript": {
+        "@formatOnSave": true,
+        "@use_jsbeautify": true
+    },
     "language": {
         "tern_defs": {
             "json()": {
@@ -18,6 +33,7 @@
         "@currentconfig": ""
     },
     "python": {
+        "@formatOnSave": false,
         "@path": "/usr/local/lib/python3.4/dist-packages:/usr/local/lib/python3.5/dist-packages"
     },
     "run": {
