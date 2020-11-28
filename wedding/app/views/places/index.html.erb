@@ -6,11 +6,26 @@
     <div class="row">
       <div class="">
         <%= link_to '式場を登録', new_place_path, class: "btn btn-primary", "data-turbolinks": false %>
-        <% @place.each do |place| %>
+        <% @places.each do |place| %>
           <%= link_to place_path(place) do %>
-        <p><%= attachment_image_tag place, :image, size: "100x100", fallback: "noimage.png", "data-turbolinks": false %></p>
+            <p><%= attachment_image_tag place, :image, size: "100x100", fallback: "noimage.png", "data-turbolinks": false %></p>
           <% end %>
-        <p><%= place.name %></p>
+          <p><%= place.name %></p>
+        
+        <!-- 評価javascript -->
+            <div id="star-rate-<%= place.id %>">口コミ<%= place.reviews.count %>件</div>
+            <script>
+              $('#star-rate-<%= place.id %>').raty({
+                size     : 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                scoreName: 'review[rate]',
+                half: true,
+                readOnly: true,
+                score: "<%= place.reviews.average(:rate).to_f.round(1) %>",
+              });
+            </script>  
         <% end %>
       </div>
       

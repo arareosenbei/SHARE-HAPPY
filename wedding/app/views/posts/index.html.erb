@@ -1,18 +1,29 @@
-<div class="container">
-  <div　class="row">
-    <div class="">
-      <h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3">
+      <h4>
         結婚式を見る
-      </h1>
-    </div>
+      </h4>
+    <p><%= link_to '結婚式を投稿', new_post_path, class: 'btn btn-primary', "data-turbolinks": false, class: '' %></p>
     <div class="row">
-      <p><%= link_to '結婚式を投稿', new_post_path, class: 'btn btn-primary', "data-turbolinks": false %></p>
+      
+      
       <% @posts.each do |post| %>
-        <%= link_to post_path(post) do %>`
-          <p><%= attachment_image_tag post, :image, size: "200x200", fallback: "noimage.png", "data-turbolinks": false %></p>
+      
+        <div class="wedding card col-xs-4">
+        <%= link_to post_path(post) do %>
+          <div class="card-title">
+            <p><h5><%= post.title %></h5></p>
+          </div>
+          <p><%= attachment_image_tag post, :image, size: "60%", class: 'img-fluid img-size, mx-auto' %></p>
+          
         <% end %>
-        <p><%= post.title %></p>
-        <% end %>
+        
+        </div>
+      <% end %>
+       
+    </div>
+
     </div>
   </div>
 </div>

@@ -3,8 +3,13 @@
 <p><%= @place.postal_code %></p>
 <p><%= @place.address %></p>
 
-<!--レビュー作成画面へのリンク-->
-<%= link_to 'レビューを書く', new_place_review_path, class: 'btn btn-primary' %>
+<!--レビュー作成画面へのリンク 作成してないならnew 作成しているならeditに遷移-->
+<% if @place.reviewed_by?(current_user) %>
+  <%= link_to 'レビューを編集', edit_place_review_path(@place, @review) %>
+<% else %>
+  <%= link_to 'レビューを書く', new_place_review_path %>
+<% end %>
+
 
 
 <!--レビュー一覧を表示-->
@@ -14,30 +19,29 @@
     <%= review.user.name %></a>
     <div class="col-md-6 mb-3">
         <div class=" posts-content">
-          <p><%= simple_time(post.created_at) %></p>
-          <h4 class="mb-3">評価：<%= post.rate %>点 | <%= post.title %></h4>
+          <!--<p>%= simple_time(review.created_at) %></p>-->
+          <h4 class="mb-3">評価：<%= review.rate %>点 | <%= review.title %></h4>
 
           <!--星評価-->
-         <div id="star-rate-<%= post.id %>"></div>
+         <div id="star-rate-<%= review.id %>"></div>
           <script>
-          $('#star-rate-<%= post.id %>').raty({
+          $('#star-rate-<%= review.id %>').raty({
             size: 36,
             starOff:  '<%= asset_path('star-off.png') %>',
             starOn : '<%= asset_path('star-on.png') %>',
             starHalf: '<%= asset_path('star-half.png') %>',
             half: true,
             readOnly: true,
-            score: <%= post.rate %>,
+            score: <%= review.rate %>,
           });
           </script>  
         <!--/星評価-->
-    <%= review.title %>
-    <%= review.created_at.strftime('%Y/%m/%d') %>
+    <%= review.created_at.strftime('%Y/%m/%d/%H:%M') %>
     <%= review.body %>
 <!--レビュー削除機能　パス設定まだ-->
     <% if review.user == current_user %>
         <div>
-      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-danger pull-right" %>
+      <!--%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-danger pull-right" %>-->
         </div>
     <% end %>
   <% end %>

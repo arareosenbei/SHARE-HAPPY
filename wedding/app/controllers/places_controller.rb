@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   before_action :find, only: %i[show edit update destroy]
 
   def index
-    @place = Place.all
+    @places = Place.all
   end
 
   def show
@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
   end
 
   def new
-    @place = Place.newp
+    @place = Place.new
   end
 
   def create
@@ -33,7 +33,7 @@ class PlacesController < ApplicationController
 
   def destroy
     @place.destroy
-    redirect_to place_path(@place)
+    redirect_to places_path
   end
 
   private
