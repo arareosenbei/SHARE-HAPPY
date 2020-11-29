@@ -40,7 +40,7 @@
         if ($('body').length !== 0) {
             $("body").scrollspy({
                 target: "#mainNav",
-                offset: 100,
+                offset: 1,
             });
         }
     };
@@ -53,7 +53,7 @@
         // ここにnull判定を追加してbodyの中に何もなかったら後で調べるような記述
         if ($('body').length !== 0) {
 
-            if ($("#mainNav").offset().top > 100) {
+            if ($("#mainNav").offset().top > 1) {
                 $("#mainNav").addClass("navbar-shrink");
             }
             else {
