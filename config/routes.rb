@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'homes#top'
+  root 'homes#index'
   get 'about' => 'homes#about'
   devise_for :users
   resources :users, only: %i[index show edit update]
