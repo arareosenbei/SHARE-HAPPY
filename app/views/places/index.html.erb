@@ -1,10 +1,9 @@
-<div class="container">
-  <div　class="row">
-    <div class="">
+<div class="container-fluid ">
+  <div class="row">
+    <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3">
       <h1>結婚式場一覧</h1>
-    </div>
-    <div class="row">
-      <div class="">
+   
+      
         <%= link_to '式場を登録', new_place_path, class: "btn btn-primary", "data-turbolinks": false %>
         <% @places.each do |place| %>
           <%= link_to place_path(place) do %>
@@ -27,7 +26,7 @@
               });
             </script>  
         <% end %>
-      </div>
+     
       
       
     </div>
