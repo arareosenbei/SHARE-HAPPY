@@ -53,7 +53,7 @@
         // ここにnull判定を追加してbodyの中に何もなかったら後で調べるような記述
         if ($('body').length !== 0) {
 
-            if ($("#mainNav").offset().top > 1) {
+            if ($("#mainNav").offset().top > 200) {
                 $("#mainNav").addClass("navbar-shrink");
             }
             else {
@@ -61,8 +61,14 @@
             }
         }
     };
+    
+    // urlがrootpathの時のみnavbarCollapseを使う
+    var path = window.location.pathname;
     // Collapse now if page is not at top
     navbarCollapse();
     // Collapse the navbar when page is scrolled
-    $(window).scroll(navbarCollapse);
+    if (path == "/") {
+      $(window).scroll(navbarCollapse);
+    };
+    
 })(jQuery); // End of use strict

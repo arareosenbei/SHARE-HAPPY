@@ -16,7 +16,32 @@
 
   <body>
     
-   <%= render 'layouts/nav' %>
+   <!--%= render 'layouts/nav' %>-->
+<% if current_page?(root_path) %>
+	<nav class="navbar navbar-expand-lg  fixed-top" id="mainNav" data-tarbolinks="false">
+<% else %>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-else" data-tarbolinks="false">
+<% end %>
+  <div class="container">
+  	<strong><%= link_to 'SHARE HAPPY', root_path, class: 'navbar-brand js-scroll-trigger '%></strong>
+                	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<% if signed_in? %>
+	          <li class="nav-item"><%= link_to "結婚式を見る", posts_path, class: 'nav-link' %></li>
+	          <li class="nav-item"><%= link_to "式場を見る", places_path, class: 'nav-link' %></li>
+	          <li class="nav-item"><%= link_to "マイページ", user_path(current_user), class: 'nav-link' %></li>
+	          <li class="nav-item"><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
+				<% else %>
+				<li class="nav-item"><%= link_to "結婚式を見る", posts_path, class: 'nav-link' %></a></li>
+	          <li class="nav-item"><%= link_to "式場を見る", places_path, class: 'nav-link' %></li>
+	          <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: 'nav-link' %></li>
+	          <li class="nav-item"><%= link_to "サインイン", new_user_registration_path, class: 'nav-link' %></a></li>
+				<% end %>
+	        </ul>
+	      </div>
+                
+            </div>
+        </nav>
     
     <%= yield %>
     

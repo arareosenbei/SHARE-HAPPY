@@ -6,6 +6,19 @@
 @import "bootstrap";
 @import "font-awesome";
 
-h4 {
+h1,h2,h3,h4 {
     margin-top: 100px;
+}
+
+a {
+    color: #000000;
+}
+
+.navbar {
+    height: 80px;
+}
+
+.navbar-else {
+    color: 000000;
+    background-color : #fff;
 }

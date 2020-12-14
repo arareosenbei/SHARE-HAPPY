@@ -1,14 +1,14 @@
 <div class="container">
   <div　class="row">
     <div class="">
-      <h1>
+      <h4>
         <!--自分の結婚式ならあなたの結婚式、違う場合は(名前)さんの結婚式-->
         <% if @post.user == current_user %>
         あなたの結婚式
         <% else %>
         <%= @post.user.name %>さんの結婚式
         <% end %>
-      </h1>
+      </h4>
     </div>
     <div class="row">
       <div class="">
