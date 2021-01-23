@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'homes#index'
-  get 'about' => 'homes#about'
+  post '/homes/guest_sign_in', to: 'homes#new_guest'
+  # get 'about' => 'homes#about'
   devise_for :users
   resources :users, only: %i[index show edit update]
   resources :posts do

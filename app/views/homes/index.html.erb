@@ -6,6 +6,7 @@
                     <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
                     <% unless signed_in? %>
                     <a><%= link_to 'ログインする', new_user_session_path, class: "btn btn-primary p-3 px-4 mr-30" %></a>
+                    <a><%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class: "btn btn-primary p-3 px-4 mr-30" %></a>
                     <% end %>
                     
                 </div>
