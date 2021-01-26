@@ -8,11 +8,7 @@
     <p><%= link_to '結婚式を投稿', new_post_path, class: 'btn btn-primary' %></p>
     <div class="row">
       
-      <!--検索フォーム-->
-      <%= search_form_for @search do |f| %>
-        <%= f.search_field :name_cont %>
-        <%= f.submit %>
-      <% end %>
+      <%= render "posts/form", search: @search %>
       
       <% @posts.each do |post| %>
       

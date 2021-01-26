@@ -45,8 +45,12 @@
         }
     };
     navbarScroll();
-
-    $(window).scroll(navbarScroll);
+    // pathに現在地のurl取得
+    var path = window.location.pathname;
+　　// urlがrootpath以外の場合はnavbarScrollを使う
+    if (path !== "/") {
+      $(window).scroll(navbarScroll);
+    };
 
     // Collapse Navbar
     var navbarCollapse = function() {
@@ -63,7 +67,7 @@
     };
     
     // urlがrootpathの時のみnavbarCollapseを使う
-    var path = window.location.pathname;
+    
     // Collapse now if page is not at top
     navbarCollapse();
     // Collapse the navbar when page is scrolled

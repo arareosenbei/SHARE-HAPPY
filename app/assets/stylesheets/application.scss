@@ -15,10 +15,11 @@ a {
 }
 
 .navbar {
-    height: 80px;
+  height: 80px;
+    
+  .shrink {
+      color: 000000;
+      background-color : #fff; 
+  }
 }
 
-.navbar-else {
-    color: 000000;
-    background-color : #fff;
-}
