@@ -56,6 +56,7 @@ gem 'pry-byebug', group: :development
 gem 'ransack'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
+gem 'kaminari'
 
   
 gem 'dotenv-rails'

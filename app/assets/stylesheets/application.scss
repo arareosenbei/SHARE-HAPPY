@@ -6,20 +6,157 @@
 @import "bootstrap";
 @import "font-awesome";
 
-h1,h2,h3,h4 {
-    margin-top: 100px;
+// 文字データ
+
+// 文字カラー
+
+// タイトルデータ
+
+* {
+    color: #000000;
+    font-size: 18px;
+    text-decoration: none;
 }
 
 a {
-    color: #000000;
+  color: #000000;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .navbar {
-  height: 80px;
-    
-  .shrink {
-      color: 000000;
-      background-color : #fff; 
+    height: 80px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+// ボタンデザイン
+.btn-design {
+  color: #FFBBFF;
+  border-color: #FFBBFF;
+  &.cut-padding {
+    padding-bottom: none;
   }
+  &:hover {
+    border-color: #FFBBFF;
+    background-color: #FFBBFF;
+  }
+}
+
+// nav
+.navbar-else {
+    color: 000000;
+    background-color : #fff;
+}
+
+.head {
+  margin-top: 80px;
+  display: flex;
+  justify-content: flex-end;
+  & > :first-child {
+    margin-right: auto;
+  }
+}
+
+// ページネーション関連
+.pagination {
+  justify-content: center;
+  color: #787c7b;
+}
+
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #787c7b; /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #FFBBFF;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
+}
+.pagination .active a { background-color: red }
+
+.page-item.active .page-lind {
+  background-color : #FFBBFF;
+}
+// post/index投稿画面用CSS
+.post-wedding {
+  display: flex;
+  padding-bottom: 50px;
+}
+
+.post-action {
+  display: flex;
+}
+
+  // カードcss
+.postcard-wrapper {
+  width: 32%;
+  border: none;
+  // margin-right: 1%;``
+  margin-left: 1%;
+  padding-top: 24px;
+}
+
+.postcard-image {
+  border-radius: 5px;
+}
+
+.postcard-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 16px 0 8px 0
+}
+
+.postcard-text {
+  font-size: 12px;
+  color: #787c7b;
+  // text-align: justify;
+}
+
+.reaction {
+  display: flex;
+}
+
+.favorite {
+  padding-right: 8px;
+}
+
+.postcard-favorite-heart {
+  padding-top: 5px;
+}
+
+.postcard-reaction-text {
+  font-size: 14px;
+}
+
+.favorite-color {
+  color: #ea3f60;
+}
+
+.comment-color {
+  color: #787c7b;
+}
+
+.postcard-user-image {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  
+}
+
+.postcard-user-name {
+  font-size: 15px;
+  color: #787c7b;
 }
 

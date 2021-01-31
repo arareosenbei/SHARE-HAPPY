@@ -2,9 +2,7 @@ class PostsController < ApplicationController
   before_action :find, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.all
-    @search = User.ransack(params[:q])
-    @users = @search.result
+    @posts = Post.all.page(params[:page]).per(9)
   end
 
   def show
@@ -41,7 +39,6 @@ class PostsController < ApplicationController
   end
 
   private
-
   # before_actionで設定
   def find
     @post = Post.find(params[:id])

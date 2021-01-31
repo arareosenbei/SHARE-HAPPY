@@ -1,14 +1,12 @@
-
-        <header class="masthead">
+          <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
-                <div class="<mx-au></mx-au>to text-center">
-                    <h1 class=" mx-auto my-0 text-uppercase">Leave  memories</h1>
+                <div class="mx-auto text-center">
+                    <h1 class=" mx-auto my-0 text-uppercase">Leave memories</h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
                     <% unless signed_in? %>
-                    <a><%= link_to 'ログインする', new_user_session_path, class: "btn btn-primary p-3 px-4 mr-30" %></a>
-                    <a><%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class: "btn btn-primary p-3 px-4 mr-30" %></a>
+                    <a><%= link_to 'ログインする', new_user_session_path, class: "btn p-3 px-4 mr-30" %></a>
+                    <a><%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class: "btn btn-primary-outline p-3 px-4 mr-30" %></a>
                     <% end %>
-                    
                 </div>
             </div>
         </header>
@@ -16,9 +14,9 @@
         <section class="about-section text-center" id="about">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 mx-auto">
+                    <div class="text-hover col-lg-8 mx-auto">
                         <h2 class="text-white mb-4">SHARE HAPPYとは</h2>
-                        <p class="text-white-50">
+                        <p class="text-contents text-white-50">
                             たくさん笑って、たくさん泣いた大切な思い出を<br>
                             ずっと大切に保管しておくためのサービスです
                         </p>

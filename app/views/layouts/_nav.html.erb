@@ -13,7 +13,7 @@
 	          <li class="nav-item"><%= link_to "マイページ", user_path(current_user), class: 'nav-link' %></li>
 	          <li class="nav-item"><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
 				<% else %>
-				<li class="nav-item"><%= link_to "結婚式を見る", posts_path, class: 'nav-link' %></a></li>
+						<li class="nav-item"><%= link_to "結婚式を見る", posts_path, class: 'nav-link' %></a></li>
 	          <li class="nav-item"><%= link_to "式場を見る", places_path, class: 'nav-link' %></li>
 	          <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: 'nav-link' %></li>
 	          <li class="nav-item"><%= link_to "サインイン", new_user_registration_path, class: 'nav-link' %></a></li>

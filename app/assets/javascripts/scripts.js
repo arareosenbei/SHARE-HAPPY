@@ -28,6 +28,15 @@
             }
         }
     });
+    // ホバーすることでテキスト表示
+    $('.text-hover').hover(
+      function() {
+        $(this).find('.text-contents').addClass('text-active');
+      },
+      function() {
+        $(this).find('.text-contents').removeClass('text-active');
+      }
+    );
 
     // Closes responsive menu when a scroll trigger link is clicked
     $(".js-scroll-trigger").click(function() {

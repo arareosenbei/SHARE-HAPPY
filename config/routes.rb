@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: %i[index show edit update]
   resources :posts do
+    get :search, on: :collection
     resource :favorites, only: %i[create destroy]
     resources :comments, only: %i[create destroy]
   end
+  
   resources :places do
     resources :reviews, only: %i[index new create edit update destroy]
   end
