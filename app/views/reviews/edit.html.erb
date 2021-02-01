@@ -1,54 +1,70 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3">
-      <div class="head">
-        <h4>
-        レビューを書く
-      </h4>
+    <div class="col-6 offset-3">
+      <div class="head review">
+        <div class="r-wrapper">
+          <!--タイトル-->
+          <h4 class="title">
+          この式場をレビュー
+          </h4>
+          <!--式場-->
+          <div class="r-place flex">
+            <!--式場画像-->
+            <%= attachment_image_tag @place, :image, class: 'image r-p-image' %>
+            <div class="r-p-text">
+              <!--式場名-->
+              <div class="r-p-name"><%= @place.name %></div>
+              <!--説明-->
+              <div class="r-p-introduction"><%= @place.introduction %></div>
+              <!--住所-->
+              <span class="r-p-address">
+                <i class="fa fa-map-marker" aria-hidden="true"><%= @place.address %></i>
+              </span>
+            </div>
 
-<%= form_with model: @review, url: place_review_path(@place, @review), local:true do |f| %>
-  <%= f.text_field :title %>
-  
-  <!--星の機能-->
-  
-  <div class="form-group row" id="star">
-    
-    <%= f.hidden_field :rate, id: :review_star %>
-  </div>
+          </div>
+          <!--レビュー-->
+          <div class="r-review">
+            <%= form_with model: @review, url: place_review_path, local:true do |f| %>
+              <!--raty読み込み-->
+              <div class="form-group row " id="star">
+                <div class>
+                  <%= f.label :rate,'評価', class: 'r-p-name' %></br>
+                </div>
+                  <%= f.hidden_field :rate, id: :review_star %>
+              </div>
+              <!--星jQuery -->
+              <div>
+                <script>
+                $('#star').raty({
+                  size     : 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'review[rate]',
+                  half: false,
+                });
+              </script>  
+              </div>
+              
+              <!--タイトル入力欄-->
+              <div class="f-title">
+                レビュータイトル
+              </div>
+              <%= f.text_field :title, placeholder: "最も伝えたいポイントは何ですか？", class: 'r-r-title' %>
+              <!--本文入力欄-->
+              <div class="f-title">
+                レビューを追加
+              </div>
+              <%= f.text_area :body, placeholder: "良かったところ/気になったところはなんですか？", class: 'r-r-body'%>
+              <!--送信ボタン-->
+              <%= f.submit "編集", class: "btn btn-lg btn-base-1 mt-20 pull-right", class: 'btn r-r-submit' %>
+            <% end %>
 
-  <!--削除機能-->
-  <%= link_to 'レビューを削除',place_review_path(@place, @review) , method: :delete %>
-
-  
-  <!-- 評価javascript -->
-  <div id="star-rate-<%= @review.id %>"></div>
-  <script>
-  $('#star').raty({
-    size     : 36,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    scoreName: 'review[rate]',
-    half: false,
-    score: <%= @review.rate %>,
-  });
-  </script>  
-  <p><%= f.text_area :body, placeholder: "本文を入力" %></p>
-  <p><%= f.submit "変更する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %></p>
-<% end %>
-
-  </div>
-  </div>  
-</div>
+          </div>
+        </div>  
       </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+    </div>
+  </div>
+</div>
+ 

@@ -43,7 +43,10 @@ a
 
 // ボタンデザイン
 @mixin btn-design {
+  font-size: 15px;
   color: #c06db5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
   border-color: #c06db5;
   &:hover {
     border-color: #c06db5;
@@ -52,6 +55,8 @@ a
 }
 
 input[type="text"], textarea {
+  font-size: 13px;
+  // color: #787c7b;
   border: 1px solid #c0c0c0;
   &:focus {
     border: 1px solid #c06db5;
