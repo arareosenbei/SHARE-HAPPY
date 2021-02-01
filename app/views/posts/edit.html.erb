@@ -1,24 +1,31 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-xs-4 col-xs-4-offset">
-      <h1>
-        結婚式情報編集
-      </h1>
-   
+    <div class="col-6 offset-3">
+      <div class="head review">
+      <h4 class="title">
+        結婚式を編集する
+      </h4>
+    </div>
     <div class="row">
-      <div>
+      <div class="">
         <%= form_with model: @post, local:true do |f| %>
-        <p>
-          <%= f.file_field :image, class: 'img_field', style: 'display:none;'%>
-          <%= attachment_image_tag @post, :image, fallback: 'noimage.png', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev'  %>
-        </p>
-        <p><%= f.text_field :title %></p>
-        <p><%= f.text_area :body %></p>
-        <p><%= f.submit '更新する', class: "btn btn-primary" %></p>
+          <p>
+            <%= f.file_field :image, class: 'img_field', style: 'display:none;'%>
+            <%= attachment_image_tag @post, :image, fallback: 'noimage.png', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev'  %>
+          </p>
+          <p><%= f.text_field :title, placeholder: '結婚式タイトル' %></p>
+          <p><%= f.text_area :body, placeholder: '本文' %></p>
+        　<!--場所選択-->
+          <p>
+            <%= f.collection_select :place_id, Place.all, :id, :name, include_blank: "--結婚式場を選択--" %>
+          </p>
+          
+          <p><%= f.submit '編集', class: "btn btn-outline-primary p-submit" %></p>
         <% end %>
-        <%= link_to '削除する', post_path(@post), method: :delete, class: "btn btn-primary", "data-turbolinks": false %>
+        <%= link_to '削除する', post_path(@post), method: :delete, class: "btn btn-outline-primary p-submit"%>
       </div>
+    
+    </div>
     </div>
   </div>
-</div>
 </div>

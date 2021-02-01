@@ -54,7 +54,7 @@ a
   }
 }
 
-input[type="text"], textarea {
+input[type="text"], select, textarea {
   font-size: 13px;
   // color: #787c7b;
   border: 1px solid #c0c0c0;
@@ -212,6 +212,11 @@ a {
   font-size: 15px;
   color: #787c7b;  
 }
+
+.p-submit {
+  @include btn-design;
+  
+}
 // 投稿画面終わり
 
 // レビュー画面始まり
@@ -233,7 +238,6 @@ a {
 
 .r-p-name {
   @include font-title;
-  
 }
 
 .r-p-introduction {
@@ -248,8 +252,6 @@ a {
   font-size: 12px;
   color: 000000;
   display: table-cell;
-  
-  
 }
 
 #star { 
