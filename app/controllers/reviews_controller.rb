@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
   
   def new
     @review = current_user.reviews.new
+    @place = Place.find(params[:place_id])
   end
 
   def create

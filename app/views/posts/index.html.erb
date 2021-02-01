@@ -1,36 +1,34 @@
 <div class="container-fluid ">
   <div class="row">
     <div class="col-8 offset-2">
-      <div class="head">
-        <!--title-->
+      <div class="head post">
+        <!--タイトル-->
         <h4 class="title">
         結婚式を見る
         </h4>
         <div class="post-action">
-          <!--form-->
-          <!--<!-%= render "layouts/form", users: @users %>-->
           <!--post.action-->
           <%= link_to '投稿する', new_post_path, class: 'btn btn-outline-primary btn-design cut-padding fa fa-pencil' %>
         </div>
       </div>
-      <!--posts-->
+      <!--投稿-->
     <div class="row post-wedding">
       <% @posts.each do |post| %>
       <div class="card postcard-wrapper">
-        <!--post-->
+        <!---->
         <div class="postcard">
           <%= link_to post_path(post) do %>
-          <!--img-->
+          <!--画像-->
             <div>
               <%= attachment_image_tag post, :image, size: "60%", class: 'img-fluid img-size, mx-auto postcard-image' %>
             </div>
-            <!--title-->
+            <!--タイトル-->
             <h5 class="postcard-title"><%= post.title %></h5>
-            <!--text-->
+            <!--本文-->
             <div class="postcard-text">
               <%= post.body %>
               <div class="reaction">
-                <!--favorites-->
+                <!--いいね-->
                 <div class="favorite">
                   <% if post.favorited_by?(current_user) %>
                   <i class="fa fa-heart favorite-color" aria-hidden="true", style=""></i>
@@ -44,7 +42,7 @@
                   </span>
                 <% end %>
                 </div>
-                <!--comments-->
+                <!--コメント-->
                 <div class="postcard-comment">
                   <i class="fa fa-commenting comment-color" aria-hidden="true"></i>
                   <span class="postcard-reaction-text comment-color"><%= post.comments.count %></span>

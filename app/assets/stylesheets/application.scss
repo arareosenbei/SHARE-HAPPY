@@ -7,10 +7,75 @@
 @import "font-awesome";
 
 // 文字データ
+// .page-item {
+//   &:active {
+  
+//     &.page-link {
+//       z-index: 1;
+//       color: #fff;
+//       background-color: #FFBBFF;
+//       border-color: #FFBBFF;
+//     }
+//   }
+// }
 
+a:active {
+  color: #FFBBFF;
+}
+a
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #976d92;
+  border-color: #976d92;
+}
 // 文字カラー
+@mixin font-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@mixin font-text {
+  font-size: 12px;
+  color: #787c7b;
+}
+
+// ボタンデザイン
+@mixin btn-design {
+  color: #c06db5;
+  border-color: #c06db5;
+  &:hover {
+    border-color: #c06db5;
+    background-color: #c06db5;
+  }
+}
+
+input[type="text"], textarea {
+  border: 1px solid #c0c0c0;
+  &:focus {
+    border: 1px solid #c06db5;
+    outline: 0
+  }
+}
+
+::placeholder {
+  font-size : 13px;
+  color: #787c7b;
+  
+}
+  
+.cut-padding {
+  @include btn-design;
+  padding-bottom: none;
+}
+  
+
 
 // タイトルデータ
+.image {
+  width: 100%;
+}
 
 * {
     color: #000000;
@@ -20,10 +85,11 @@
 
 a {
   color: #000000;
-}
-
-a:hover {
-  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: #976d92;
+    
+  }
 }
 
 .navbar {
@@ -34,18 +100,7 @@ a:hover {
   font-weight: 600;
 }
 
-// ボタンデザイン
-.btn-design {
-  color: #FFBBFF;
-  border-color: #FFBBFF;
-  &.cut-padding {
-    padding-bottom: none;
-  }
-  &:hover {
-    border-color: #FFBBFF;
-    background-color: #FFBBFF;
-  }
-}
+
 
 // nav
 .navbar-else {
@@ -55,12 +110,19 @@ a:hover {
 
 .head {
   margin-top: 80px;
-  display: flex;
-  justify-content: flex-end;
-  & > :first-child {
-    margin-right: auto;
+  &.post {
+    display: flex;
+    justify-content: flex-end;
+    & > :first-child {
+      margin-right: auto;
+    }
+  }
+  &.review {
+    padding: auto;
   }
 }
+
+.flex { display: flex; }
 
 // ページネーション関連
 .pagination {
@@ -69,26 +131,27 @@ a:hover {
 }
 
 .pagination>li>a {          
-  border: none;     /*枠線をなくす*/
-  color: #787c7b; /*文字の色を変える*/
+  border: none;
+  color: #787c7b;
 }
 
-/* 表示しているページ番号のデザイン */
+
 .pagination>.active>a {     
-  background: #FFBBFF;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
+  background: #FFBBFF; 
+  border-radius: 15px;
 }
 
-/*ホバー時のデザイン*/
-.pagination>li>a:hover {        
-  border-radius: 15px;    /*角を丸くする*/
+.pagination>li>a:hover {
+  border-radius: 15px;
 }
+
 .pagination .active a { background-color: red }
 
 .page-item.active .page-lind {
   background-color : #FFBBFF;
 }
-// post/index投稿画面用CSS
+
+// 投稿画面連始まり
 .post-wedding {
   display: flex;
   padding-bottom: 50px;
@@ -102,7 +165,6 @@ a:hover {
 .postcard-wrapper {
   width: 32%;
   border: none;
-  // margin-right: 1%;``
   margin-left: 1%;
   padding-top: 24px;
 }
@@ -121,7 +183,6 @@ a:hover {
 .postcard-text {
   font-size: 12px;
   color: #787c7b;
-  // text-align: justify;
 }
 
 .reaction {
@@ -132,31 +193,83 @@ a:hover {
   padding-right: 8px;
 }
 
-.postcard-favorite-heart {
-  padding-top: 5px;
-}
+.postcard-favorite-heart { padding-top: 5px; }
 
-.postcard-reaction-text {
-  font-size: 14px;
-}
-
-.favorite-color {
-  color: #ea3f60;
-}
-
-.comment-color {
-  color: #787c7b;
-}
-
+.postcard-reaction-text {font-size: 14px; }
+.favorite-color { color: #ea3f60; }
+.comment-color {color: #787c7b;}
 .postcard-user-image {
   border-radius: 50%;
   height: 30px;
   width: 30px;
+}
+.postcard-user-name {
+  font-size: 15px;
+  color: #787c7b;  
+}
+// 投稿画面終わり
+
+// レビュー画面始まり
+.r-place {
+  margin-left: 30px;
+}
+
+.r-p-text {
+  margin-left: 30px;
+  margin-top: 15px;
+}
+  
+.r-p-image {
+  height: 150px;
+  width: 150px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.r-p-name {
+  @include font-title;
   
 }
 
-.postcard-user-name {
-  font-size: 15px;
-  color: #787c7b;
+.r-p-introduction {
+  @include font-text;
+  margin-top: 10px;
+  padding-left: 30px;
 }
 
+.r-p-address {
+  position: relative;
+  top: 75px;
+  font-size: 12px;
+  color: 000000;
+  display: table-cell;
+  
+  
+}
+
+#star { 
+  border-top: solid 1px #c0c0c0;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 15px;
+}
+
+.f-title {
+  @include font-title;
+}
+
+.r-r-title {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.r-r-body {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.r-r-submit {
+  @include btn-design;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
