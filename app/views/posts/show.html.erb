@@ -1,91 +1,78 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-6 offset-3">
-      <div class="head review">
-        <div class="post-show-wrapper">
-          
-          
-          
-    </div>
-      <div class="post-image">
-        <%= attachment_image_tag @post, :image, fallback: "noimage.png" %>
-      </div>
-      <h4 class="title">
-          <%= @post.title %>
-        </h4>
-      <div class="reaction">
-                <!--いいね-->
-                <div class="favorite">
-                  <% if @post.favorited_by?(current_user) %>
-                  <i class="fa fa-heart favorite-color" aria-hidden="true", style=""></i>
-                  <span class="postcard-favorite-text favorite-color">
-                    <%= @post.favorites.count %>
-                  </span>
-                <% else %>
-                  <i class="fa fa-heart-o postcard-favorite-heart favorite-color" aria-hidden="true"></i>
-                  <span class="postcard-reaction-text favorite-color">
-                    <%= @post.favorites.count %>
-                  </span>
-                <% end %>
-                </div>
-                <!--コメント-->
-                <div class="postcard-comment">
-                  <i class="fa fa-commenting comment-color" aria-hidden="true"></i>
-                  <span class="postcard-reaction-text comment-color"><%= @post.comments.count %></span>
-                </div>
-              </div>
+        <div class=" head post-show-wrapper">
+    
+          <div class="post-image">
+            <%= attachment_image_tag @post, :image, fallback: "noimage.png" %>
+          </div>
+          <h4 class="title post-title">
+            <%= @post.title %>
+          </h4>
+          <div class="reaction post-s-reaction">
+                <!--いいね表示-->
+            <div class="favorite">
+              <% if @post.favorited_by?(current_user) %>
+                <i class="fa fa-heart favorite-color" aria-hidden="true", style=""></i>
+                <span class="postcard-reaction-text favorite-color">
+                  <%= @post.favorites.count %>
+                </span>
+              <% else %>
+                <i class="fa fa-heart-o postcard-favorite-heart favorite-color" aria-hidden="true"></i>
+                <span class="postcard-reaction-text favorite-color">
+                  <%= @post.favorites.count %>
+                </span>
+              <% end %>
             </div>
+                <!--コメント表示-->
+            <div class="">
+              <i class="fa fa-commenting comment-color" aria-hidden="true"></i>
+              <span class="postcard-reaction-text comment-color"><%= @post.comments.count %></span>
+            </div>
+          </div>
+          <div class="post-s-user">
+            <%= link_to user_path(@post) do %>
+              <div class="flex">
+                <%= attachment_image_tag @post.user, :image, fallback: "noimage.png", class:'postcard-user-image' %>
+                <div class="post-s-u-status">
+            <!--<div class="post-user-name">-->
+                  <p class="post-s-u-name"><%= @post.user.name %></p>
+            <!--</div>-->
+                  <p class="post-s-u-date"><%= @post.created_at.strftime('%Y/%m/%d') %></p>
+                </div>
+        
+              </div>
       
-      <div class="post-user">
-        
-      </div>
-      <%= attachment_image_tag @post.user, :image, fallback: "noimage.png "%>
-      <%= @post.user.name %>
-      <%= @post.created_at.strftime('%Y/%m/%d') %>
-      <!--作成日-->
-      <%= @post.body %>
-     
-        
-      
-        
-        <div>
-          <!--いいね-->
-          <div class="favorite">
-          <%= render 'favorites/favorite', post: @post %>
-        </div>
-
+            <% end %>
+            <%= @post.body %>
+          </div>
         </div>
         <div>
-          <!--コメントフォーム-->
-          <%= render 'comments/form', post: @post, comment: @comment %>
-        
-        <!--コメント情報呼び出し-->
-        
-        
-        <!--もしコメントした人が投稿者以外のユーザーなら左側に表示-->
-        <!--投稿者本人なら右側に表示-->
-        <div class="post-comment">
+            <!--いいね-->
+          <div class="favorite post-s-u-favorite">
+            <%= render 'favorites/favorite', post: @post %>
+          </div>
+        </div>
+        <div class="post-s-u-comment-wrapper">
           <%= render 'comments/index', post: @post, comments: @comments %>
         </div>
-        </div>
-        
-        
-
-        <p><%= link_to '一覧に戻る', posts_path, class: "btn btn-outline-primary" %></p>
-        <p>
+        <!--コメントフォーム-->
+          <!--コメントのAJAX表示されてないからやり直し-->
+          <div class="post-s-u-comment-form">
+            <%= render 'comments/form', post: @post, comment: @comment %>
+          </div>
+          
+          <%= link_to '一覧に戻る', posts_path, class:"btn btn-outline-primary p-submit" %>
           <% if %>
-            <%= link_to '編集', edit_post_path(@post), class: "btn btn-outline-primary", "data-turbolinks": false %>
+            <%= link_to '編集', edit_post_path(@post), class:"btn btn-outline-primary p-submit" %>
           <% end %>
-        </p>
-      </div>
-    </div>
-    </div>
-  </div>
-</div>
-
-
+    
+   
 <!--自分の結婚式なら削除リンク-->
-<%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-primary", "data-turbolinks": false %>
-
-
-
+          <% if @post.user == current_user %>
+            <%= link_to '削除', post_path(@post), method: :delete, class:"btn btn-outline-primary p-submit" %>
+          <% end %>
+        </div>
+      </div>
+   </div> 
+  

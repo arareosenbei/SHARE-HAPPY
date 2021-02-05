@@ -2,10 +2,10 @@ class HomesController < ApplicationController
   def top; end
 
   # def about; end
-    
+
   def index; end
-    
-  # ゲストログイン作成用 
+
+  # ゲストログイン作成用
   def new_guest
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64

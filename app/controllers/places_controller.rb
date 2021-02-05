@@ -7,9 +7,7 @@ class PlacesController < ApplicationController
     @users = @search.result
   end
 
-  def show
-    
-  end
+  def show; end
 
   def new
     @place = Place.new
@@ -25,8 +23,7 @@ class PlacesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @place.update(place_params)

@@ -9,7 +9,7 @@ class Place < ApplicationRecord
   validates :introduction, presence: true
   validates :address, presence: true
   validates :postal_code, presence: true
-  
+
   def reviewed_by?(user)
     reviews.where(user_id: user.id).exists?
   end

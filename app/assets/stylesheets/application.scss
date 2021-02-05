@@ -73,8 +73,6 @@ input[type="text"], select, textarea {
   padding-bottom: none;
 }
   
-
-
 // タイトルデータ
 .image {
   width: 100%;
@@ -155,15 +153,11 @@ a {
 }
 
 // 投稿画面連始まり
+// posts/index
 .post-wedding {
   display: flex;
   padding-bottom: 50px;
 }
-
-.post-action {
-  display: flex;
-}
-
   // カードcss
 .postcard-wrapper {
   width: 32%;
@@ -201,7 +195,7 @@ a {
 .postcard-reaction-text {font-size: 14px; }
 .favorite-color { color: #ea3f60; }
 .comment-color {color: #787c7b;}
-.postcard-us
+
 
 .postcard-user {
   &:hover {
@@ -213,26 +207,171 @@ a {
   height: 30px;
   width: 30px;
 }
+
 .postcard-user-name {
   font-size: 15px;
   color: #787c7b;
 }
+
+.post-user-name {
+  font-size: 15px;
+  color: #000000;
+}
+
+
 
 .p-submit {
   @include btn-design;
 }
 
 .post-show-wrapper {
+  margin-top: 100px;
   
 }
 
-.post-image {
+.post-title {
+  margin-top: 100px;
   
 }
 
-.post-comment {
+.post-comment-image {
+  width: 100px;
+  height: 100px;
+}
+
+// posts/show
+
+.post-s-reaction {
+  margin-top: 20px;
+}
+
+.post-s-user {
+  margin-top: 20px;
+}
+
+.post-s-u-status {
+  padding-left: 10px;
+}
+
+.post-s-u-favorite {
+  padding-top : 30px;
+}
+
+.post-s-u-comment-wrapper {
+  border-top: solid 1px #787c7b;
+}
+
+.post-s-u-comment {
+  // margin-top: 30px;
+  // border-top: solid 1px #787c7b;
+  // border-bottom: solid 1px #787c7b;
+}
+
+.post-s-u-comment-form {
+  // margin-top: 10px;
+  & input, textarea {
+    width: 100%;
+  }
+  
+  width: 100%;
+}
+
+.post-s-u-name {
+  font-size: 15px;
+  color: #000000;
+  margin-bottom: 0;
+}
+
+.post-s-u-date {
+  font-size: 15px;
+  color: #787c7b;
+}
+
+// 吹き出し　チャット風
+// チャット白黒(自分以外)
+.balloon2-left {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 10px 15px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 3px #555;
+  border-radius: 20px;
+  box-sizing: border-box;
   
 }
+
+.balloon2-left::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-right: 12px solid #FFF;
+  z-index: 2;
+}
+
+.balloon2-left::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-right: 14px solid #555;
+  z-index: 1;
+}
+
+.balloon2-left p {
+  margin: 0;
+  padding: 0;
+}
+
+.right {
+  text-align: right;
+}
+
+.left {
+  
+}
+
+// チャット背景色付き(自分)
+.balloon1-right {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 15px 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #fbdffb;
+  border-radius: 20px;
+}
+
+.balloon1-right:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 95%;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-left: 15px solid #fbdffb;
+}
+
+.balloon1-right p {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
 // 投稿画面終わり
 
 // レビュー画面始まり

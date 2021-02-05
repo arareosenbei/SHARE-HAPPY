@@ -39,6 +39,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   # before_actionで設定
   def find
     @post = Post.find(params[:id])

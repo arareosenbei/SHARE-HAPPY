@@ -1,13 +1,46 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <%= attachment_image_tag comment.user, :image, size: '100x100', format: 'jpg'  %>
-    <p><%= link_to "#{comment.user.name}", user_path(comment.user.id) %></p>
-    <%= comment.body %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %>
-    
-    <% if comment.user == current_user %>
-      <p><%= link_to 'コメントを削除する', post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: 'btn btn-danger' %></p>
-    <% end %>
+  
+  <% if comment.user == current_user %>
+    <div class="post-s-u-comment right">
+      <!--チャット風吹き出し-->
+      <!--右寄せ-->
+      <div class="right">
+        <div class="balloon1-right">
+          <%= comment.body %>
+          <%= comment.created_at.strftime('%Y/%m/%d') %>
+          <% if comment.user == current_user %>
+            <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <%= link_to user_path(comment.user) do %>
+          <%= link_to "#{comment.user.name}", user_path(comment.user.id), class: 'postcard-user-name' %>
+          <%= attachment_image_tag comment.user, :image, fallback: 'noimage.png', class: 'postcard-user-image', format: 'jpg'  %>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+      <!--左寄せ-->
+    <div class="post-s-u-comment">
+      <div class="left">
+      <%= link_to user_path(comment.user) do %>
+        <%= attachment_image_tag comment.user, :image, fallback: 'noimage.png', class: 'postcard-user-image', format: 'jpg'  %>
+        <%= link_to "#{comment.user.name}", user_path(comment.user.id), class: 'postcard-user-name' %>
+      <% end %>
+      <div class="balloon2-left">
+        <%= comment.body %>
+        <%= comment.created_at.strftime('%Y/%m/%d') %>
+        <% if comment.user == current_user %>
+          <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  <% end %>
+  
   <% end %>
 <% end %>
-
