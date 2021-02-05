@@ -1,7 +1,7 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
     <%= attachment_image_tag comment.user, :image, size: '100x100', format: 'jpg'  %>
-    <p><%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %></p>
+    <p><%= link_to "#{comment.user.name}", user_path(comment.user.id) %></p>
     <%= comment.body %>
     <%= comment.created_at.strftime('%Y/%m/%d') %>
     

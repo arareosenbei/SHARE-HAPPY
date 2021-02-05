@@ -5,7 +5,6 @@
 
 @import "bootstrap";
 @import "font-awesome";
-
 // 文字データ
 // .page-item {
 //   &:active {
@@ -56,7 +55,6 @@ a
 
 input[type="text"], select, textarea {
   font-size: 13px;
-  // color: #787c7b;
   border: 1px solid #c0c0c0;
   &:focus {
     border: 1px solid #c06db5;
@@ -203,6 +201,13 @@ a {
 .postcard-reaction-text {font-size: 14px; }
 .favorite-color { color: #ea3f60; }
 .comment-color {color: #787c7b;}
+.postcard-us
+
+.postcard-user {
+  &:hover {
+    color: #976d92;
+  }
+}
 .postcard-user-image {
   border-radius: 50%;
   height: 30px;
@@ -210,11 +215,22 @@ a {
 }
 .postcard-user-name {
   font-size: 15px;
-  color: #787c7b;  
+  color: #787c7b;
 }
 
 .p-submit {
   @include btn-design;
+}
+
+.post-show-wrapper {
+  
+}
+
+.post-image {
+  
+}
+
+.post-comment {
   
 }
 // 投稿画面終わり

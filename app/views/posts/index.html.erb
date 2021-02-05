@@ -50,6 +50,7 @@
               </div>
             </div>
             <!--post.user-->
+            <%= link_to user_path(post) do %>
             <div class="postcard-user">
               <!--post.user.img-->
               <%= attachment_image_tag post.user, :image, fallback: "noimage.png", class: 'postcard-user-image' %>
@@ -60,6 +61,7 @@
               
               
             </div>
+            <% end %>
           <% end %>
         </div>
       </div>
