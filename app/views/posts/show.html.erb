@@ -9,50 +9,53 @@
           <h4 class="title post-title">
             <%= @post.title %>
           </h4>
-          <div class="reaction post-s-reaction">
-                <!--いいね表示-->
-            <div class="favorite">
-              <% if @post.favorited_by?(current_user) %>
-                <i class="fa fa-heart favorite-color" aria-hidden="true", style=""></i>
-                <span class="postcard-reaction-text favorite-color">
-                  <%= @post.favorites.count %>
-                </span>
-              <% else %>
-                <i class="fa fa-heart-o postcard-favorite-heart favorite-color" aria-hidden="true"></i>
-                <span class="postcard-reaction-text favorite-color">
-                  <%= @post.favorites.count %>
-                </span>
-              <% end %>
-            </div>
-                <!--コメント表示-->
-            <div class="">
-              <i class="fa fa-commenting comment-color" aria-hidden="true"></i>
-              <span class="postcard-reaction-text comment-color"><%= @post.comments.count %></span>
-            </div>
-          </div>
-          <div class="post-s-user">
-            <%= link_to user_path(@post) do %>
-              <div class="flex">
-                <%= attachment_image_tag @post.user, :image, fallback: "noimage.png", class:'postcard-user-image' %>
+          
+          <!--ユーザー情報-->
+          <div class="post-s-user flex">
+               <%= attachment_image_tag @post.user, :image, fallback: "noimage.png", class:'postcard-user-image' %>
                 <div class="post-s-u-status">
-            <!--<div class="post-user-name">-->
                   <p class="post-s-u-name"><%= @post.user.name %></p>
-            <!--</div>-->
                   <p class="post-s-u-date"><%= @post.created_at.strftime('%Y/%m/%d') %></p>
                 </div>
-        
-              </div>
+          
+            </div>
+          
+                
+              
       
+            <div class="post-s-u-comment-text">
+              <%= @post.body %>
+            </div>
+          
+        
+        <% if @post.user == current_user %>
+            <%= link_to edit_post_path(@post), class:"btn btn-outline-primary p-submit" do %>
+              編集<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %>
-            <%= @post.body %>
-          </div>
-        </div>
-        <div>
+            <%= link_to  post_path(@post), method: :delete, class:"btn btn-outline-primary p-submit" do %>
+              削除<i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+        
+        <div class="flex post-s-u-favorite">
             <!--いいね-->
           <div class="favorite post-s-u-favorite">
             <%= render 'favorites/favorite', post: @post %>
           </div>
+        
+        <!--コメント-->
+         <div class="">
+              <i class="fa fa-commenting comment-color" aria-hidden="true"></i>
+              <span class="postcard-reaction-text comment-color"><%= @post.comments.count %></span>
+            </div>
+         
+          <div class="post-s-user">
+            <%= link_to user_path(@post) do %>
+              
+            <% end %>
+          </div>
         </div>
+        <!--コメント終わり-->
         <div class=" comment post-s-u-comment-wrapper">
           <%= render 'comments/index', post: @post, comments: @comments %>
         </div>
@@ -61,16 +64,12 @@
           <div class="post-s-u-comment-form">
             <%= render 'comments/form', post: @post, comment: @comment %>
           </div>
-          <%= link_to '一覧に戻る', posts_path, class:"btn btn-outline-primary p-submit" %>
-          <% if %>
-            <%= link_to '編集', edit_post_path(@post), class:"btn btn-outline-primary p-submit" %>
-          <% end %>
+            <%= link_to '一覧に戻る', posts_path, class:"btn btn-outline-primary p-submit backbtn" %>
+          
+          
     
    
 <!--自分の結婚式なら削除リンク-->
-          <% if @post.user == current_user %>
-            <%= link_to '削除', post_path(@post), method: :delete, class:"btn btn-outline-primary p-submit" %>
-          <% end %>
         </div>
       </div>
    </div> 
