@@ -1,18 +1,28 @@
-<div class="container-fluid ">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3">
+    <div class="col-6 offset-3">
+      <div class="head">
       <h4>結婚式場一覧</h4>
-   
-      
         <%= link_to '式場を登録', new_place_path, class: "btn btn-primary", "data-turbolinks": false %>
         <% @places.each do |place| %>
+          <!--場所情報-->
           <%= link_to place_path(place) do %>
-            <p><%= attachment_image_tag place, :image, size: "100x100", fallback: "noimage.png", "data-turbolinks": false %></p>
+            <%= attachment_image_tag place, :image, fallback: "noimage.png", "data-turbolinks": false %>
+            <%= place.name %>
+            <%= place.introduction %>
+            <%= place.address %>
+           
+            <!--何人のユーザーがこの式場を利用したのか-->
+            <%= place.posts.count %>人の方が結婚式を開催しました。
+          
           <% end %>
-          <p><%= place.name %></p>
-        
-        <!-- 評価javascript -->
-            <div id="star-rate-<%= place.id %>">口コミ<%= place.reviews.count %>件</div>
+          
+            <!--レビュー件数と評価の平均-->
+            <div id="star-rate-<%= place.id %>">
+              <%= link_to place_reviews_path(place) do %>
+              レビュー<%= place.reviews.count %>件 
+              <% end %>
+            </div>
             <script>
               $('#star-rate-<%= place.id %>').raty({
                 size     : 36,
@@ -28,7 +38,7 @@
         <% end %>
      
       
-      
+      　</div>
     </div>
   </div>
 </div>

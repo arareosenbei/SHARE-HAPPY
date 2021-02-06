@@ -3,8 +3,7 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
-    @search = Place.ransack(params[:q])
-    @users = @search.result
+    
   end
 
   def show; end

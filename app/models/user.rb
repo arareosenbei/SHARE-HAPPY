@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
-  # 文字数制限も
+  # 文字数制限
   validates :email, presence: true
   validates :name, presence: true
 end
