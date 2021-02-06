@@ -143,7 +143,6 @@ a {
   color: #787c7b;
 }
 
-
 .pagination>.active>a {     
   background: #FFBBFF; 
   border-radius: 15px;
@@ -442,4 +441,32 @@ a {
   @include btn-design;
   margin-right: auto;
   margin-bottom: 15px;
+}
+
+// レビュー画面終わり
+
+// ユーザー画面始まり
+
+.user-i-user {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #d2b6d2;
+}
+
+.user-i-u-image {
+  border-radius: 50%;
+  height: 90px;
+  width: 90px;
+}
+
+.user-i-u-name {
+  @include font-title;
+  // padding-top: 20px;
+  padding-left: 20px;
+}
+
+.user-i-u-text {
+  @include font-text;
+  padding-top: 0px;
+  padding-left: 20px;
 }
