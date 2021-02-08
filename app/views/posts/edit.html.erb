@@ -1,28 +1,37 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-6 offset-3">
-      <div class="head review">
-      <h4 class="title">
-        結婚式を編集する
-      </h4>
-    </div>
-    <div class="row">
+      <div class="head post-new">
       <div class="">
         <%= form_with model: @post, local:true do |f| %>
-          <p>
+          
             <%= f.file_field :image, class: 'img_field', style: 'display:none;'%>
             <%= attachment_image_tag @post, :image, fallback: 'noimage.png', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev'  %>
-          </p>
-          <p><%= f.text_field :title, placeholder: '結婚式タイトル' %></p>
-          <p><%= f.text_area :body, placeholder: '本文' %></p>
+          <h4 class="title post-e-title">
+            タイトル
+          </h4>
+          <%= f.text_field :title, placeholder: 'タイトルを入力してください', class: 'post-e-form' %>
+          <h4 class="title post-e-title">
+            本文
+          </h4>
+          <%= f.text_area :body, placeholder: '本文を入力してください', class: 'post-e-form', rows: '5'  %>
         　<!--場所選択-->
-          <p>
-            <%= f.collection_select :place_id, Place.all, :id, :name, include_blank: "--結婚式場を選択--" %>
-          </p>
+          <h4 class="title post-e-title">
+            結婚式場
+          </h4>
+          <%= f.collection_select :place_id, Place.all, :id, :name, include_blank: "結婚式場を選択してください" %>
           
-          <p><%= f.submit '編集', class: "btn btn-outline-primary p-submit" %></p>
+          <div class="flex">
+            <div>
+              <%= f.submit '保存', class: "btn btn-outline-primary p-submit" %>
+            </div>
+            <div class="post-e-btn">
+              <%= link_to '削除', post_path(@post), method: :delete, class: "btn btn-outline-primary p-submit backbtn"%>
+            </div>
+          </div>
+          
         <% end %>
-        <%= link_to '削除する', post_path(@post), method: :delete, class: "btn btn-outline-primary p-submit"%>
+        
       </div>
     
     </div>

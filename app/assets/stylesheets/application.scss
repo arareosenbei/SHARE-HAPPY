@@ -131,6 +131,12 @@ a {
   }
 }
 
+.img_prev:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transform: scale(1.01, 1.01);
+}
+
 .backbtn {
   margin-bottom: 100px;
 }
@@ -231,6 +237,7 @@ a {
 
 .p-submit {
   @include btn-design;
+  margin-top: 20px;
 }
 
 .post-show-wrapper {
@@ -379,6 +386,17 @@ a {
   padding: 0;
 }
 
+.post-e-title {
+  margin-top: 10px;
+}
+
+.post-e-form {
+  width: 100%;
+}
+
+.post-e-btn {
+  margin-left: 10px;
+}
 
 
 
@@ -447,7 +465,7 @@ a {
   
 }
 
-.user-e-u-image{
+.user-e-u-image {
   width: 200px;
   height: 200px;
   border-radius: 50%;
