@@ -1,28 +1,39 @@
-<div class="container">
-  <div　class="row">
-    <div class="">
-      <h1>
-      　プロフィール編集
-      </h1>
-    </div>
-    <div class="row">
-      <div class="">
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="head user-edit">
         <%= form_with model: @user, local:true do |f| %>
-        <p>
-          <!--画像プレビュー実装-->
-          <!--file_fieldをdisplay:none非表示にし、クラスを付与する。-->
-          <%= f.file_field :image, class: 'img_field', style: 'display:none;'%>
-          <!--上で付与したクラスのHTML(file_field)がクリックされたらJavaScriptの処理を実行する。-->
-          <%= attachment_image_tag @user, :image, size: '200x200', fallback: 'noimage.png', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev'  %>
-        </p>
-        <p><%= f.text_field :name %></p>
-        <p><%= f.text_area :introduction %></p>
-        <p><%= f.submit '更新する', class: "btn btn-primary" %></p>
-        <p><%= link_to '戻る', user_path(@user), class: "btn btn-primary", "data-turbolinks": false %></p>
-      <% end %>
+          <div class="user-e-u-wrapper flex">
+            <div>
+              <div>
+                <%= f.file_field :image, class: 'img_field', style: 'display:none;'%>
+                <!--上で付与したクラスのHTML(file_field)がクリックされたらJavaScriptの処理を実行する。-->
+                <%= attachment_image_tag @user, :image, size: '200x200', fallback: 'noimage.png', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev user-e-u-image' %>
+              </div>
+            </div>
+            <div class="user-flex">
+                <h4 class="title">
+                  ユーザー名
+                </h4> 
+                <%= f.text_field :name, placeholder: 'ユーザ  ー名を入力してください', class: 'user-e-u-form' %>
+              <div class="user-e-u-introduction">
+                <h4 class="title">
+                  プロフィール
+                </h4>
+                <%= f.text_area :introduction, placeholder: 'プロフィールを入力してください', class: 'user-e-u-form', rows: '5' %>
+              </div>
+              <div class="user-e-u-submit">
+                <%= f.submit '更新する', class: "btn btn-outline-primary btn-design user-e-u-submit" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div>
+          <%= link_to '戻る', user_path(@user), class: "btn btn-outline-primary btn-design", "data-turbolinks": false %>
+        </div>
+        
       </div>
-      
-      
     </div>
   </div>
 </div>
