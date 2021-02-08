@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-6 offset-3">
       <div class="head">
-      <h4>結婚式場一覧</h4>
-        <%= link_to '式場を登録', new_place_path, class: "btn btn-primary" %>
+        <%= link_to '式場を追加', new_place_path, class: "btn btn-outline-primary place-in-new" %>
         <% @places.each do |place| %>
           <!--場所情報-->
           <%= link_to place_path(place) do %>

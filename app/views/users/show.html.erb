@@ -1,27 +1,40 @@
-<div class="container">
-  <div　class="row">
-    <div class="">
-    　<!--タイトル　自分のページ：マイページ、他社のページ：別表記-->
-      <% if @user == current_user %>
-        <h1>マイページ</h1>
-      <% else %>
-        <h1><%= @user.name %>さんの会員情報</h1>
-      <% end %>
-    </div>
-    <!--ユーザー情報-->
-    <div class="row">
-      <div>
-        <p><%= attachment_image_tag @user, :image, size: "200x200", fallback: "noimage.png" %></p>
-        <p><%= @user.name %></p>
-        <p><%= @user.introduction %></p>
-        <%= link_to '一覧に戻る', users_path, "data-turbolinks": false, class: "btn btn-primary" %>
-        <!--current_userなら編集リンク表示-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="head user-show">
         <% if @user == current_user %>
-          <%= link_to '編集する', edit_user_path(@user), "data-turbolinks": false, class: "btn btn-primary" %>
+          <h4>
+            マイページ
+            <%= link_to edit_user_path(@user) do %>
+              <i class="fa fa-cog" aria-hidden="true"></i>
+            <% end %>
+          </h4>
+        <% else %>
+          <h4><%= @user.name %>さんの会員情報</h4>
         <% end %>
+        
+    　<!--タイトル　自分のページ：マイページ、他社のページ：別表記-->
+    　<div class="user-s-wrapper flex">
+      <!--ユーザー情報-->
+        <div >
+          <%= attachment_image_tag @user, :image, size: "200x200", fallback: "noimage.png", class:'user-s-u-image' %>
+        </div>
+        <div class="user-s-u-text">
+          <div class="user-s-u-name">
+            <%= @user.name %>
+          </div>
+          <div class="user-s-u-introduction">
+            <%= @user.introduction %>
+          </div>
+        </div>
+        
+    </div>
+
+        <%= link_to '一覧に戻る', users_path, "data-turbolinks": false, class: "btn btn-outline-primary btn-design user-s-u-btn" %>
+          
       </iv>
       
-
+      </div>
     </div>
   </div>
 </div>

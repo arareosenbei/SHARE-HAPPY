@@ -60,6 +60,10 @@ a
   }
 }
 
+.btn-design {
+  @include btn-design;
+}
+
 input[type="text"], select, textarea {
   font-size: 13px;
   border: 1px solid #c0c0c0;
@@ -405,9 +409,35 @@ a {
   padding-left: 20px;
 }
 
+.user-s-u-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.user-s-u-text {
+  margin-left: 20px;
+} 
+
+.user-s-u-name {
+  @include font-title;
+}
+
+.user-s-u-introduction {
+  margin-top: 10px;
+  @include font-text;
+}
+
+.user-s-u-btn {
+  margin-top: 20px;
+}
 // ユーザー画面終わり
 
 // 結婚式場画面始まり
+
+.place-in-new {
+  @include btn-design;
+}
 
 .place-in-wrapper {
   padding-top: 20px;
