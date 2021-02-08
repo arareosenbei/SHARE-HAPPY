@@ -407,7 +407,48 @@ a {
 
 // ユーザー画面終わり
 
+// 結婚式場画面始まり
 
+.place-in-wrapper {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px #d2b6d2;
+}
+
+.place-in-flex-right {
+  margin-left: 20px;
+}
+
+.place-in-image {
+  width: 200px;
+  height: 200px;
+}
+
+.place-in-address {
+  @include font-text;
+}
+
+.place-in-r-text {
+  padding-top: 5px;
+  @include font-text;
+  &:hover {
+    color: #976d92;
+    border-bottom: solid 1px #976d92;
+  }
+}
+
+.place-in-title {
+  @include font-title;
+}
+
+.place-in-text {
+  font-size: 13px;
+} 
+
+.place-in-y-count {
+  @include font-text;
+}
+// 結婚式情報終わり
 
 // レビュー画面始まり
 .r-place {

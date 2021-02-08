@@ -3,42 +3,73 @@
     <div class="col-6 offset-3">
       <div class="head">
       <h4>結婚式場一覧</h4>
-        <%= link_to '式場を登録', new_place_path, class: "btn btn-primary", "data-turbolinks": false %>
+        <%= link_to '式場を登録', new_place_path, class: "btn btn-primary" %>
         <% @places.each do |place| %>
           <!--場所情報-->
           <%= link_to place_path(place) do %>
-            <%= attachment_image_tag place, :image, fallback: "noimage.png", "data-turbolinks": false %>
-            <%= place.name %>
-            <%= place.introduction %>
-            <%= place.address %>
-           
-            <!--何人のユーザーがこの式場を利用したのか-->
-            <%= place.posts.count %>人の方が結婚式を開催しました。
-          
-          <% end %>
-          
-            <!--レビュー件数と評価の平均-->
-            <div id="star-rate-<%= place.id %>">
-              <%= link_to place_reviews_path(place) do %>
-              レビュー<%= place.reviews.count %>件 
-              <% end %>
+            <div class="place-in-wrapper flex">
+              <div class="place-in-flex-left">
+                <!--結婚式場画像表示-->
+                <%= attachment_image_tag place, :image, fallback: "noimage.png", class: 'place-i-image' %> 
+              </div>
+              <div class="place-in-flex-right"> 
+              <!--結婚式場名表示-->
+                <div class="place-in-title title"> 
+                  <%= place.name %>
+                </div>
+                
+                <!--結婚式場住所表示-->
+                <div class="place-in-address"> 
+                <!--こいつが大量発生するから解決する　　-->
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <%= place.address %>
+                </div>
+                
+                <!--レビュー件数-->
+                <div class="place-in-review">
+                  <div class="flex "id="star-rate-<%= place.id %>">
+                    <%= link_to place_reviews_path(place) do %>
+                      <div class="place-in-r-text">
+                        レビュー<%= place.reviews.count %>件 
+                      </div>
+                    <% end %>
+                    <!--星情報-->
+                    <script>  
+                      $('#star-rate-<%= place.id %>').raty({
+                        size     : 24,
+                        starOff:  '<%= asset_path('star-off.png') %>',
+                        starOn : '<%= asset_path('star-on.png') %>',
+                        starHalf: '<%= asset_path('star-half.png') %>',
+                        scoreName: 'review[rate]',
+                        half: true,
+                        readOnly: true,
+                        score: "<%= place.reviews.average(:rate).to_f.round(1) %>",
+                      });
+                    </script> 
+                
+                  </div>
+                </div>
+                
+              
+                
+                <!--結婚式場本文表示-->
+                <div class="place-in-text">
+                  <%= place.introduction %>
+                </div>
+                
+                <div class="place-in-y-count">
+                  <!--何人のユーザーがこの式場を利用したのか表示-->
+                  <%= place.posts.count %>人の方が結婚式を開催しました
+                </div>
+              </div>
+                 
             </div>
-            <script>
-              $('#star-rate-<%= place.id %>').raty({
-                size     : 36,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                starHalf: '<%= asset_path('star-half.png') %>',
-                scoreName: 'review[rate]',
-                half: true,
-                readOnly: true,
-                score: "<%= place.reviews.average(:rate).to_f.round(1) %>",
-              });
-            </script>  
+            
+           
+            
+          <% end %>
         <% end %>
-     
-      
-      　</div>
+    　</div>
     </div>
   </div>
 </div>
