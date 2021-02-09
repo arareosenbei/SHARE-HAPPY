@@ -6,7 +6,9 @@ class PlacesController < ApplicationController
     
   end
 
-  def show; end
+  def show
+    @user = @place.user
+  end
 
   def new
     @place = Place.new
