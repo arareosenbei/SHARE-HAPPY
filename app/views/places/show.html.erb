@@ -1,17 +1,17 @@
  <div class="container-fluid">
   <div class="row">
     <div class="col-6 offset-3">
-      <div class="head post-show">
+      <div class="head place-show-wrapper">
         
         <!--結婚式場情報-->
-        <div class="flex">
-          <div>
-            <h4 class="title"><%= @place.name %></h4>
-            <%= attachment_image_tag @place, :image, size: "100x100", fallback: "noimage.png" %>
+        <div class="place-s-place-wrapper flex">
+          <div class="place-s-p-flex-left">
+            <h4 class="title placr-s-p-title"><%= @place.name %></h4>
+            <%= attachment_image_tag @place, :image, size: "100x100", fallback: "noimage.png", class: 'place-s-p-image' %>
           </div>
-          <div>
+          <div class="place-s-p-flex-right">
             <%= link_to place_reviews_path(@place) do %>
-              <div id="star-rate-<%= @place.id %>">口コミ<%= @place.reviews.count %>件</div>
+              <div class="place-s-p-review" id="star-rate-<%= @place.id %>">レビュー<%= @place.reviews.count %>件</div>
               <script>
                 if ($('#star-rate-<%= @place.id %>').children().length === 0) {
                   $('#star-rate-<%= @place.id %>').raty({
@@ -25,57 +25,72 @@
                     score: "<%= @place.reviews.average(:rate).to_f.round(1) %>",
                   }); 
                 }
-              </script>  Ω
+              </script>
             <% end %>
-            <%= @place.introduction %>
-            <%= @place.postal_code %>
-            <%= @place.address %>
+            <div class="place-s-p-introduction">
+              <%= @place.introduction %>
+            </div>
+            <div class="place-s-p-postal_code">
+              <%= @place.postal_code %>
+            </div>
+            <div class="place-s-p-address">
+              <%= @place.address %>
+            </div>
           </div>
         </div>
         <!--結婚式場情報終わり-->
         
         <!--レビュー一覧-->
-        <div class="">
+        <div class="place-s-reviews-wrapper">
           <% @place.reviews.each do |review| %>
           <!--ユーザー情報-->
-            <%= link_to user_path(@user) do %>
-              <%= attachment_image_tag review.user, :image, size: '100x100', format: 'jpg', fallback: "noimage.png" %>
-              <%= review.user.name %>
-            <% end %>
-            <!--<p>%= simple_time(review.created_at) %></p>-->
-            
-            
-            <%= review.title %>
-            <%= review.rate %>点
-            <!--星評価-->
-        　   <div id="star-rate-<%= review.id %>"></div>
-            <script>
-              $('#star-rate-<%= review.id %>').raty({
-                size: 36,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                starHalf: '<%= asset_path('star-half.png') %>',
-                half: true,
-                readOnly: true,
-                score: <%= review.rate %>,
-              });
-            </script>  
-            <!--/星評価-->
-            <%= review.created_at.strftime('%Y/%m/%d/%H:%M') %>
-            <%= review.body %>
-            
-            <!--レビュー削除機能　パス設定まだ-->
-            <% if review.user == current_user %>
-              <!--%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-danger pull-right" %>-->
-            <% end %>
+            <div class="place-s-review">
+              
+              <div class="place-s-user">
+                <%= link_to user_path(@user) do %>
+                  <%= attachment_image_tag review.user, :image, size: '100x100', format: 'jpg', fallback: "noimage.png", class: 'place-s-r-user-image' %>
+                  <div class="place-s-r-user-name"><%= review.user.name %></div>
+                <% end %>
+              </div>
+              <div class="place-s-r-text">
+                <!--星評価-->
+                <div class="flex">
+                  <div id="star-rate-<%= review.id %>"></div>
+                  <script>
+                    $('#star-rate-<%= review.id %>').raty({
+                      size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: <%= review.rate %>,
+                    });
+                  </script> 
+                  <!--/星評価-->
+                  <div class="place-s-r-title"><%= review.title %></div>
+                </div>
+                <div class="place-s-r-datetime"><%= review.created_at.strftime('%Y/%m/%d/%H:%M') %></div>
+                <div class="place-s-r-body"><%= review.body %></div>
+              </div>
+                
+
+              
+              
+              <!--レビュー削除機能　パス設定まだ-->
+              <% if review.user == current_user %>
+                <!--%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-danger pull-right" %>-->
+              <% end %>
+            </div>
+
           <% end %>
         </div>
         <!--レビュー一覧終わり-->
         
         <!--ボタン-->
-        <%= link_to '一覧に戻る', places_path, "data-turbolinks": false, class: "btn btn-primary" %>
+        <%= link_to '一覧に戻る', places_path, "data-turbolinks": false, class: "btn btn-outline-primary btn-design" %>
         <% if @place.user == current_user %>
-          <%= link_to '編集する', edit_place_path(@place), "data-turbolinks": false, class: "btn btn-primary" %>
+          <%= link_to '編集する', edit_place_path(@place), "data-turbolinks": false, class: "btn btn=outline-primary btn-design" %>
         <% end %>
         <!--ボタン終わり-->
       

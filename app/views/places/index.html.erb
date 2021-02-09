@@ -26,8 +26,8 @@
                 
                 <!--レビュー件数-->
                 <div class="place-in-review">
-                  <div class="flex "id="star-rate-<%= place.id %>">
-                    <%= link_to place_reviews_path(place) do %>
+                  <div class="flex" id="star-rate-<%= place.id %>">
+                    <%= link_to place_path(place) do %>
                       <div class="place-in-r-text">
                         レビュー<%= place.reviews.count %>件 
                       </div>
