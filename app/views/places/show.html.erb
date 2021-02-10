@@ -10,23 +10,27 @@
             <%= attachment_image_tag @place, :image, size: "100x100", fallback: "noimage.png", class: 'place-s-p-image' %>
           </div>
           <div class="place-s-p-flex-right">
-            <div class="place-s-p-review" id="star-rate-<%= @place.id %>">
-              <script>
-                if ($('#star-rate-<%= @place.id %>').children().length === 0) {
-                  $('#star-rate-<%= @place.id %>').raty({
-                    size     : 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    scoreName: 'review[rate]',
-                    half: true,
-                    readOnly: true,
-                    score: "<%= @place.reviews.average(:rate).to_f.round(1) %>",
-                  }); 
-                }
-              </script>
-              <span><%= @place.reviews.count %></span> 
+            <div class="flex">
+              <div class="place-s-p-review" id="star-rate-<%= @place.id %>"></div>
+              <div>
+                <script>
+                  if ($('#star-rate-<%= @place.id %>').children().length === 0) {
+                    $('#star-rate-<%= @place.id %>').raty({
+                      size     : 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      scoreName: 'review[rate]',
+                      half: true,
+                      readOnly: true,
+                      score: "<%= @place.reviews.average(:rate).to_f.round(1) %>",
+                    }); 
+                  }
+                </script>
+                <span><%= @place.reviews.average(:rate) %></span> 
+              </div>
             </div>
+            
             <div class="place-s-p-introduction">
               <%= @place.introduction %>
             </div> 
