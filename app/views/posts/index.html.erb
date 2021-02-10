@@ -32,7 +32,7 @@
                 <div class="favorite">
                   <% if post.favorited_by?(current_user) %>
                   <i class="fa fa-heart favorite-color" aria-hidden="true", style=""></i>
-                  <span class="postcard-favorite-text favorite-color">
+                  <span class="postcard-reaction-text favorite-color">
                     <%= post.favorites.count %>
                   </span>
                 <% else %>

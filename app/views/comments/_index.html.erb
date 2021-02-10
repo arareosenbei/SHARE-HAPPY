@@ -2,23 +2,22 @@
   <% unless comment.id.nil? %>
   
   <% if comment.user == current_user %>
-    <div class="post-s-u-comment right">
+    <div class="post-s-u-comment">
       <!--チャット風吹き出し-->
       <!--右寄せ-->
       <div class="right">
         <div class="balloon1-right">
           <%= comment.body %>
-          <%= comment.created_at.strftime('%Y/%m/%d') %>
           <% if comment.user == current_user %>
             <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
               <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %>
           <% end %>
         </div>
-        <%= link_to user_path(comment.user) do %>
-          <%= link_to "#{comment.user.name}", user_path(comment.user.id), class: 'postcard-user-name' %>
+        <%= link_to user_path(comment.user.id) do %>
           <%= attachment_image_tag comment.user, :image, fallback: 'noimage.png', class: 'postcard-user-image', format: 'jpg'  %>
         <% end %>
+          <div><%= comment.created_at.strftime('%Y/%m/%d') %></div>
       </div>
     </div>
   <% else %>
@@ -29,15 +28,24 @@
         <%= attachment_image_tag comment.user, :image, fallback: 'noimage.png', class: 'postcard-user-image', format: 'jpg'  %>
         <%= link_to "#{comment.user.name}", user_path(comment.user.id), class: 'postcard-user-name' %>
       <% end %>
-      <div class="balloon2-left">
-        <%= comment.body %>
-        <%= comment.created_at.strftime('%Y/%m/%d') %>
-        <% if comment.user == current_user %>
+      <div>
+        <div class="balloon2-left">
+          <!--コメント消去用-->
           <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
-            <i class="fa fa-trash" aria-hidden="true"></i>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
+          <!--ここまで-->
+          <%= comment.body %>
+         
+          <% if comment.user == current_user %>
+            <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+           <%= comment.created_at.strftime('%Y/%m/%d') %>
       </div>
+      
       </div>
     </div>
   <% end %>
