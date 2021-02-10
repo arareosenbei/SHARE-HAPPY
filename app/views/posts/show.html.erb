@@ -1,49 +1,43 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-6 offset-3">
-        <div class=" head post-show-wrapper">
-    
-          <div class="post-image">
-            <%= attachment_image_tag @post, :image, fallback: "noimage.png" %>
-          </div>
+      <div class=" head post-show-wrapper">
+        <div class="post-s-post-wrapper">
+          <%= attachment_image_tag @post, :image, fallback: "noimage.png" %>
           <h4 class="title post-title">
             <%= @post.title %>
           </h4>
-          
           <!--ユーザー情報-->
           <div class="post-s-user flex">
-               <%= attachment_image_tag @post.user, :image, fallback: "noimage.png", class:'postcard-user-image' %>
-                <div class="post-s-u-status">
-                  <p class="post-s-u-name"><%= @post.user.name %></p>
-                  <p class="post-s-u-date"><%= @post.created_at.strftime('%Y/%m/%d') %></p>
-                </div>
-          
+            <%= attachment_image_tag @post.user, :image, fallback: "noimage.png", class:'postcard-user-image' %>
+            <div class="post-s-u-status">
+              <p class="post-s-u-name"><%= @post.user.name %></p>
+              <p class="post-s-u-date"><%= @post.created_at.strftime('%Y/%m/%d') %></p>
             </div>
-            <div class="post-s-u-comment-text">
-              <%= @post.body %>
-            </div>
-          
+          </div>
+          <div class="post-s-u-comment-text">
+            <%= @post.body %>
+          </div>
+        </div>
         
         <% if @post.user == current_user %>
-            <%= link_to edit_post_path(@post), class:"btn btn-outline-primary p-submit" do %>
-              編集<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-            <% end %>
-            <%= link_to  post_path(@post), method: :delete, class:"btn btn-outline-primary p-submit" do %>
-              削除<i class="fa fa-trash" aria-hidden="true"></i>
-            <% end %>
+          <%= link_to edit_post_path(@post), class:"btn btn-outline-primary p-submit" do %>
+            編集<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
           <% end %>
-        
+          <%= link_to  post_path(@post), method: :delete, class:"btn btn-outline-primary p-submit" do %>
+            削除<i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
         <div class="flex post-s-u-favorite">
-            <!--いいね-->
-          <div class="favorite post-s-u-favorite">
+              <!--いいね-->
+          <div class="favorite">
             <%= render 'favorites/favorite', post: @post %>
           </div>
-        
         <!--コメント-->
-         <div class="">
-              <i class="fa fa-commenting comment-color" aria-hidden="true"></i>
-              <span class="postcard-reaction-text comment-color"><%= @post.comments.count %></span>
-            </div>
+          <div class="">
+            <i class="fa fa-commenting comment-color" aria-hidden="true"></i>
+            <span class="postcard-reaction-text comment-color"><%= @post.comments.count %></span>
+          </div>
          
           <div class="post-s-user">
             <%= link_to user_path(@post) do %>
@@ -51,22 +45,19 @@
             <% end %>
           </div>
         </div>
-        <!--コメント終わり-->
-        <div class=" comment post-s-u-comment-wrapper">
-          <%= render 'comments/index', post: @post, comments: @comments %>
-        </div>
+        <!--コメント一覧-->
+        <div class="post-s-comment-wrapper">
+          <div class="comment post-s-u-comment-wrapper">
+            <%= render 'comments/index', post: @post, comments: @comments %>
+          </div>
         <!--コメントフォーム-->
-          <!--コメントのAJAX表示されてないからやり直し-->
           <div class="post-s-u-comment-form">
             <%= render 'comments/form', post: @post, comment: @comment %>
           </div>
-            <%= link_to '一覧に戻る', posts_path, class:"btn btn-outline-primary p-submit backbtn" %>
           
-          
-    
-   
-<!--自分の結婚式なら削除リンク-->
         </div>
+        <%= link_to '一覧に戻る', posts_path, class:"btn btn-outline-primary p-submit backbtn" %>
       </div>
-   </div> 
+    </div>
+ </div> 
   

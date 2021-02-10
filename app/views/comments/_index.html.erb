@@ -1,48 +1,54 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
-  
-  <% if comment.user == current_user %>
-    <div class="post-s-u-comment">
+    <% if comment.user == current_user %>
       <!--チャット風吹き出し-->
       <!--右寄せ-->
-      <div class="right">
-        <div class="balloon1-right">
-          <%= comment.body %>
-          <% if comment.user == current_user %>
-            <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
+      <div class="right flex">
+        <div class="">
+          <div class="balloon1-right">
+            <%= comment.body %>
+            <% if comment.user == current_user %>
+              <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
             <% end %>
+          </div>
+          <div class="post-s-u-comment-datetime migi">
+            <%= comment.created_at.strftime('%Y/%m/%d') %>
+          </div>
+        </div>
+        <div>
+          <%= link_to user_path(comment.user.id) do %>
+            <%= attachment_image_tag comment.user, :image, fallback: 'noimage.png', class: 'postcard-user-image', format: 'jpg'  %>
           <% end %>
         </div>
-         <!--コメント消去用-->
-          <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            <% end %>
-          <!--ここまで-->
-        <%= link_to user_path(comment.user.id) do %>
-          <%= attachment_image_tag comment.user, :image, fallback: 'noimage.png', class: 'postcard-user-image', format: 'jpg' %>
-        <% end %>
-          <div><%= comment.created_at.strftime('%Y/%m/%d') %></div>
       </div>
-    </div>
-  <% else %>
+    <% else %>
+      <!--チャット風吹き出し-->
       <!--左寄せ-->
-    <div class="post-s-u-comment">
-      <div class="left">
-      <%= link_to user_path(comment.user) do %>
-        <%= attachment_image_tag comment.user, :image, fallback: 'noimage.png', class: 'postcard-user-image', format: 'jpg'  %>
-        <%= link_to "#{comment.user.name}", user_path(comment.user.id), class: 'postcard-user-name' %>
-      <% end %>
-      <div>
-        <div class="balloon2-left">
-          <%= comment.body %>
+      <div class="left flex">
+        <div>
+          <%= link_to user_path(comment.user) do %>
+            <div class="image">
+              <%= attachment_image_tag comment.user, :image, fallback: 'noimage.png', class: 'postcard-user-image', format: 'jpg'  %>
+            </div>
+          <% end %>
         </div>
-           <%= comment.created_at.strftime('%Y/%m/%d') %>
+        <div>
+          <div class="postcard-user-name"><%= comment.user.name %></div>
+          <div class="balloon2-left">
+            <%= comment.body %>
+            <% if comment.user == current_user %>
+              <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+          </div>  
+          <div class="post-s-u-comment-datetime">
+            <%= comment.created_at.strftime('%Y/%m/%d') %>
+          </div>
+        </div>
       </div>
-      
-      </div>
-    </div>
-  <% end %>
-  
+    <% end %>
   <% end %>
 <% end %>

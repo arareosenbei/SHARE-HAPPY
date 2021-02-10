@@ -2,7 +2,7 @@
   <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
     <i class="fa fa-heart favorite-color" aria-hidden="true"></i>
     <span class="postcard-reaction-text favorite-color">
-      <%= post.favorites.count %> いいね
+      <%= post.favorites.count %>
     </span>
     
   <% end %>
@@ -10,7 +10,7 @@
   <%= link_to post_favorites_path(post), method: :post, remote: true do %>
     <i class="fa fa-heart-o postcard-favorite-heart favorite-color" aria-hidden="true"></i>
     <span class="postcard-reaction-text favorite-color">
-      <%= post.favorites.count %> いいね
+      <%= post.favorites.count %>
     </span>
   <% end %>
 <% end %>
