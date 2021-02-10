@@ -14,8 +14,13 @@
             <% end %>
           <% end %>
         </div>
+         <!--コメント消去用-->
+          <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
+          <!--ここまで-->
         <%= link_to user_path(comment.user.id) do %>
-          <%= attachment_image_tag comment.user, :image, fallback: 'noimage.png', class: 'postcard-user-image', format: 'jpg'  %>
+          <%= attachment_image_tag comment.user, :image, fallback: 'noimage.png', class: 'postcard-user-image', format: 'jpg' %>
         <% end %>
           <div><%= comment.created_at.strftime('%Y/%m/%d') %></div>
       </div>
@@ -30,18 +35,7 @@
       <% end %>
       <div>
         <div class="balloon2-left">
-          <!--コメント消去用-->
-          <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            <% end %>
-          <!--ここまで-->
           <%= comment.body %>
-         
-          <% if comment.user == current_user %>
-            <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            <% end %>
-          <% end %>
         </div>
            <%= comment.created_at.strftime('%Y/%m/%d') %>
       </div>
