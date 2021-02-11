@@ -363,7 +363,7 @@ a {
   text-align: right;
   justify-content: flex-end;
 }
-
+ 
 
 // post/edit
 
@@ -522,6 +522,7 @@ a {
 
 .place-show-wrapper {
   .place-s-place-wrapper {
+    padding-left: 15px;
     margin-bottom: 20px;
     .place-s-p-flex-left {
       .place-s-p-image {
@@ -555,10 +556,12 @@ a {
     margin-top: 20px;
     margin-bottom: 20px;
     .place-s-review {
-      padding-bottom: 15px;
+      padding: 25px 0 25px 15px;
       border-top: solid 1px #976d92;
+      &.yours {
+        background-color: #fceef9;
+      }
       .place-s-user {
-        margin-top: 25px;
         margin-bottom: 10px;
         .place-s-r-user-image {
           width: 30px;

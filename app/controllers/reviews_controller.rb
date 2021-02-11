@@ -16,7 +16,8 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.new(review_params)
     @review.place_id = params[:place_id]
     @review.save
-    redirect_to place_reviews_path
+    place = @review.place
+    redirect_to place_path(place)
   end
 
   def edit
@@ -25,12 +26,14 @@ class ReviewsController < ApplicationController
 
   def update
     @review.save(review_params)
-    redirect_to place_reviews_path
+    place = @review.place
+    redirect_to place_path(place)
   end
 
   def destroy
     @review.destroy
-    redirect_to place_reviews_path
+    place = @review.place
+    redirect_to place_path(place)
   end
 
   private

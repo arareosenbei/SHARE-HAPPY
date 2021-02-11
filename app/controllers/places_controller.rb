@@ -12,6 +12,7 @@ class PlacesController < ApplicationController
 
   def new
     @place = Place.new
+
   end
 
   def create
@@ -45,6 +46,6 @@ class PlacesController < ApplicationController
 
   # ストロングパラメーター
   def place_params
-    params.require(:place).permit(:name, :postal_code, :address, :introduction, :image)
+    params.require(:place).permit(:name, :postal_code, :address, :introduction, :image,)
   end
 end
