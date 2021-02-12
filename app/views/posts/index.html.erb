@@ -49,14 +49,6 @@
                 </div>
               </div>
             </div>
-            <!--結婚式場情報-->
-            <!--%= attachment_image_tag post.place, :image, fallback: 'noimage,png' %>-->
-            <!--%= post.place.name %>-->
-            <!--%= post.place.postal_code %>-->
-            <!--%= post.place.address %>-->
-            
-            <!--結婚式場情報ここまで-->
-            
             <!--post.user-->
             <%= link_to user_path(post) do %>
               <div class="postcard-user">
@@ -66,10 +58,32 @@
                 <span class="postcard-user-name">
                   <%= post.user.name %>
                 </span>
-                
-                
               </div>
             <% end %>
+            <!--結婚式場情報-->
+            <div class="postcard-place-wrapper">
+              <h5>
+                  使用した結婚式場
+              </h5>
+              <%= link_to place_path(post.place) do %>
+              <div class="flex">
+                <div>
+                  <%= attachment_image_tag post.place, :image, fallback: 'noimage,png', class: 'postcard-place' %>
+                </div>
+                <div class="place-name">
+                  <p><%= post.place.name %></p>
+                  <div>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <%= post.place.postal_code %>
+                    <%= post.place.address %>
+                  </div>
+                </div>
+                </div>
+                </div>
+              <% end %>
+              
+            
+            <!--結婚式場情報ここまで-->
           <% end %>
         </div>
       </div>
@@ -81,3 +95,4 @@
     </div>
   </div>
 </div>
+

@@ -54,8 +54,58 @@
           <div class="post-s-u-comment-form">
             <%= render 'comments/form', post: @post, comment: @comment %>
           </div>
+        </div>
+        
+        <!--結婚式場情報ここから-->
+        <div class="post-s-u-place-wrapper">
+        <h6>式場はこちら</h6>
+          <div class="post-s-u-place card">
+            <%= link_to place_path(@post.place) do %>
+              <div class="flex">
+                <!--画像-->
+                <div>
+                  <%= attachment_image_tag @post.place, :image, fallback: 'noimage,png', class: 'place-img' %>
+                </div>
+                <div class="text">
+                  <!--名前-->
+                  <div class="name">
+                    <%= @post.place.name %>
+                  </div>
+                  <!--星-->
+                  <div class="star" id="star-rate-<%= @post.place.id %>">
+                    <script>
+                      $('#star-rate-<%= @post.place.id %>').raty({
+                        size: 36,
+                        starOff:  '<%= asset_path('star-off.png') %>',
+                        starOn : '<%= asset_path('star-on.png') %>',
+                        starHalf: '<%= asset_path('star-half.png') %>',
+                        half: true,
+                        readOnly: true,
+                        score: "<%= @post.place.reviews.average(:rate).to_f.round(1) %>",
+                      });
+                    </script> 
+                  </div>
+                  <!--住所-->
+                  <div class="access">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <%= @post.place.postal_code %>
+                    <%= @post.place.address %>
+                  </div>
+                  <div class="introduction">
+                    <%= @post.place.introduction %>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            <% end %>
+            
+          </div>
+          
+            
           
         </div>
+          <!--結婚式場情報ここまで-->
         <%= link_to '一覧に戻る', posts_path, class:"btn btn-outline-primary p-submit backbtn" %>
       </div>
     </div>

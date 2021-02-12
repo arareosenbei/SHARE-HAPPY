@@ -166,7 +166,7 @@ a {
   width: 32%;
   border: none;
   margin-left: 1%;
-  padding-top: 24px;
+  padding-top: 40px;
 }
 
 .postcard-image {
@@ -212,9 +212,35 @@ a {
 }
 
 .postcard-user-name {
-  margin-left: 20px;
   font-size: 12px;
   color: #787c7b;
+}
+
+ h5 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.postcard-place-wrapper {
+  margin-top: 10px;
+  // border-top: solid 1px #787c7b;
+  img {
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  }
+  div {
+    font-size: 12px;
+    color: #787c7b;
+    &.place-name {
+      margin-left: 10px;
+    }
+    p {
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
 }
 
 .post-user-name {
@@ -288,6 +314,42 @@ a {
       margin-bottom: 50px;
       & input, textarea {
         width: 100%;
+      }
+    }
+  }
+  .post-s-u-place-wrapper {
+    .post-s-u-place {
+    }
+    max-width: 50%;
+    .flex {
+    padding: 15px; 
+    padding-left: 0px;
+      .place-img {
+        height: 150px;
+        width: 150px;
+      }
+      .text {
+        margin-left: 10px;
+        .name {
+          font-size: 14px;
+          font-weight: 600;
+        }  
+        .star {
+          img {
+            height: 20px;
+            width: 20px;
+          }
+        }
+        .access {
+          padding-left: 10px;
+          padding-top: 5px;
+          @include font-text;
+        }
+        .introduction {
+            padding-top: 10px;
+            padding-left: 10px;
+            font-size: 14px;
+        }
       }
     }
   }
