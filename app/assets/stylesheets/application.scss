@@ -119,13 +119,15 @@ a {
 // }
 
 .form-signup {
+  padding: 100px 0;
   background: #e9e9e9;
   color: #5e5e5e;
+  
   .form-wrapper {
   background: #fafafa;
   margin: auto;
   padding: 0 1em;
-  max-width: 370px;
+  // max-width: 370px;
   h1 {
     text-align: center;
     padding: 1em 0;
@@ -137,7 +139,7 @@ a {
       margin-bottom: 0.75em;
       width: 100%;
       &:input[type="text"] {
-        border-radius: none;
+        border-radius: initial;
       }
     }
     .form-item input {
@@ -148,9 +150,7 @@ a {
       font-size: 1em;
       height: 50px;
       transition: border-color 0.3s;
-      &.field {
-        width: 100%;
-      }
+      width: 100%;
     }
     .form-item input:focus {
       border-bottom: 2px solid #c0c0c0;
