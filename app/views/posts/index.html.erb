@@ -5,14 +5,7 @@
           <%= flash[:alert]%>  
       </div>
       <div class="post">
-        <!--タイトル-->
-        <h4 class="title">
-        結婚式を見る
-        </h4>
-        <div class="flex">
-          <!--post.action-->
-          <%= link_to '投稿する', new_post_path, class: 'btn btn-outline-primary btn-design cut-padding fa fa-pencil' %>
-        </div>
+        <%= link_to '投稿する', new_post_path, class: 'btn btn-outline-primary btn-design cut-padding fa fa-pencil' %>
       </div>
       <!--投稿-->
     <div class="row post-wedding">
