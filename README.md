@@ -1,45 +1,59 @@
-結婚式、投稿サイト
-
 # SHARE HAPPY
+<img width="1680" alt="スクリーンショット 2021-02-22 15 07 04" src="https://user-images.githubusercontent.com/69485684/108677844-9cd33e80-752d-11eb-80d8-c78f44193d51.png">
+<!-- gifに変更 -->
 
-## サイト概要
-自分が経験した結婚式の思い出を残す</br>
-結婚式を終えた他の方の苦労したポイントややってよかったことなども確認できる</br>
-式場、２次会の場所を登録し、レビューなどを確認できる
+## SHARE HAPPYとは
 
-### サイトテーマ
-幸せの思い出を、次の幸せに(仮)
 
-### テーマを選んだ理由
-結婚式をすると決めてから頑張って企画や準備に励む新郎新婦の姿を見た時に、</br>
-開催する側の負担の多さに驚き、全国で開催した方が全員この苦労をしているのを想像し、</br>
-その負担を減らす事はできないのかと考えました。</br>
-過去に他の方が体験した体験、やってよかった、ここをやっておきたかったなどを共有し、</br>
-自分たちの結婚式の参考にすることができるだけで、大幅に負担を減らせる上に、</br>
-自分たちの開く結婚式をもっと楽しむ事が出来る用になると考えました。</br>
-そうして、作り上げた結婚式の思い出を共有することで自らが体験した幸せを次の方に受け継ぐことができると思い、Webアプリの制作に至りました。
+## URL
+http://54.144.107.159/
 
-### ターゲットユーザ
-結婚式を開催し、その記録を残し、他の方の役に立てたい人</br>
-その人の結婚式に出席した人</br>
-今、結婚式を考えていて、先人の経験を活かしたい人
+## ポートフォリオ作成の動機  
+- 友人の結婚式の準備をそばで手伝った際に式場選択、衣装選択、料理、親族や友人へのおもてなし、披露宴の出し物や二次会の準備など本当にたくさんの準備が必要なことを知ることが出来た。そこで、これから結婚される人にすでに結婚式を挙げられた人の良かった点や改善しておけばよかった点などリアルな感想を届ける事ができる場所を作りたいと考えた。
 
-### 主な利用シーン
-結婚式の思い出を共有したい時</br>
-結婚式を開催しようと思っていて、式場を探したり、やったほうがいいこと、気をつけたほうがいいことを知りたい時
-
-## 設計書
-
-### 機能一覧
-https://docs.google.com/spreadsheets/d/1IQ9qzrJilywugyszCch6y05XiQsMsnbF0OakxoAsNO0/edit#gid=0
+<!-- ## ポートフォリオ作成にあたっての課題 -->
 
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- 言語：HTML,CSS,JavaScript,Ruby
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - 仮想環境：AWS cloud9
 
-## 使用素材
-[Unsplash](https://unsplash.com/)
-[pixabay](https://pixabay.com/ja/)
+## 画面一覧
+
+<img width="1680" alt="スクリーンショット 2021-02-22 15 07 04" src="https://user-images.githubusercontent.com/69485684/108683747-63063600-7535-11eb-86b2-dd18d7b993b7.png">
+<img width="1680" alt="スクリーンショット 2021-02-22 17 17 53" src="https://user-images.githubusercontent.com/69485684/108683763-67caea00-7535-11eb-89a7-566dc1147612.png">
+<img width="1679" alt="スクリーンショット 2021-02-22 17 15 51" src="https://user-images.githubusercontent.com/69485684/108683797-70bbbb80-7535-11eb-9902-1f9e5393c0d8.png">
+<img width="1680" alt="スクリーンショット 2021-02-22 17 15 59" src="https://user-images.githubusercontent.com/69485684/108683805-72857f00-7535-11eb-960e-f7eab801261b.png">
+<img width="1677" alt="スクリーンショット 2021-02-22 16 49 01" src="https://user-images.githubusercontent.com/69485684/108683832-7a452380-7535-11eb-8afd-31ee1e41a438.png">
+<img width="1679" alt="スクリーンショット 2021-02-22 17 30 51" src="https://user-images.githubusercontent.com/69485684/108683853-8204c800-7535-11eb-823d-895783c966bd.png">
+<img width="1680" alt="スクリーンショット 2021-02-22 16 50 05" src="https://user-images.githubusercontent.com/69485684/108683870-8630e580-7535-11eb-9afd-168762d0d1a0.png">
+<img width="1678" alt="スクリーンショット 2021-02-22 16 48 11" src="https://user-images.githubusercontent.com/69485684/108683899-8f21b700-7535-11eb-8b1d-07d1e8e46906.png">
+<img width="1678" alt="スクリーンショット 2021-02-22 16 49 30" src="https://user-images.githubusercontent.com/69485684/108684241-00fa0080-7536-11eb-9c4e-722fa1492216.png">
+<img width="1679" alt="スクリーンショット 2021-02-22 16 49 43" src="https://user-images.githubusercontent.com/69485684/108684254-05261e00-7536-11eb-9f26-82a63fbe44a6.png">
+<img width="1680" alt="スクリーンショット 2021-02-22 16 50 27" src="https://user-images.githubusercontent.com/69485684/108684260-07887800-7536-11eb-9dcb-a4dfa290e97b.png">
+
+
+
+
+
+
+
+
+
+<!-- ## 機能一覧 -->
+
+## ER図
+![SHARE-HAPPY　ER図](https://user-images.githubusercontent.com/69485684/108620322-d98c3080-746e-11eb-80bc-04eb3e0905a1.png)
+
+## インフラ構成図
+![インフラ構成図](https://user-images.githubusercontent.com/69485684/108620323-e01aa800-746e-11eb-9be8-d7dbfc4505a1.png)
+
+<!-- ## 工夫した点 -->
+
+<!-- 苦労した点 -->
+
+<!-- ## 学んだこと -->
+
+<!-- ## 反省し、次に活かす点 -->
