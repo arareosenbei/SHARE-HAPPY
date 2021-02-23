@@ -1,9 +1,6 @@
-# SHARE HAPPY
+# SHARE HAPPYとは
 <img width="1680" alt="スクリーンショット 2021-02-22 15 07 04" src="https://user-images.githubusercontent.com/69485684/108677844-9cd33e80-752d-11eb-80d8-c78f44193d51.png">
 <!-- gifに変更 -->
-
-## SHARE HAPPYとは
-
 
 ## URL
 http://54.144.107.159/
@@ -34,15 +31,30 @@ http://54.144.107.159/
 <img width="1679" alt="スクリーンショット 2021-02-22 16 49 43" src="https://user-images.githubusercontent.com/69485684/108684254-05261e00-7536-11eb-9f26-82a63fbe44a6.png">
 <img width="1680" alt="スクリーンショット 2021-02-22 16 50 27" src="https://user-images.githubusercontent.com/69485684/108684260-07887800-7536-11eb-9dcb-a4dfa290e97b.png">
 
+## 機能一覧
 
+- ユーザー登録関連
+  - 新規登録、プロフィール編集機能
+  - ログイン、ログアウト機能
+  - かんたんログイン機能（ゲストユーザーログイン）
 
+- 結婚式投稿機能
+- いいね機能　(ajax)
+ - 非同期通信でハートボタンを押すと非同期通信でハートの色が変わる機能
 
+- コメント機能 (ajax)
+  - チャット形式でのコメント機能
+  - 背景色を変えることによって自身のコメントを判別することが可能
 
+- 式場閲覧機能
 
+- レビュー機能 (jQuery)
 
+- フラッシュメッセージ表示機能
 
+- 検索機能（実装予定）
 
-<!-- ## 機能一覧 -->
+- ランキング機能（実装予定）
 
 ## ER図
 ![SHARE-HAPPY　ER図](https://user-images.githubusercontent.com/69485684/108620322-d98c3080-746e-11eb-80bc-04eb3e0905a1.png)
