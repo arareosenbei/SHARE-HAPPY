@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   root 'homes#index'
   post '/homes/guest_sign_in', to: 'homes#new_guest'
-  # get 'about' => 'homes#about'
   devise_for :users
   resources :users, only: %i[index show edit update]
   resources :posts do
-    get :search, on: :collection
     resource :favorites, only: %i[create destroy]
     resources :comments, only: %i[create destroy]
   end
