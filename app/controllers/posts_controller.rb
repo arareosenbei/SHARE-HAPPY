@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   def login_check
     unless user_signed_in?
       flash[:alert] = "ログインしてください"
-      redirect_back(fallback_location: root_path)
+      redirect_to user_session_path
     end
   end
 
